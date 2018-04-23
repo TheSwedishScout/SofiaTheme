@@ -12,10 +12,28 @@ if ( have_posts() ) {
 		?>
 		<article>
 		<h1 class="heading"><a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h1>
+		<?php
+		if ( is_home() ) {
+		  //echo ' blog page';
+		  ?><div class="exerpt">
+			<?= the_excerpt();?>
+			</div>
+			<?php
 
-		<div class="exerpt">
+		  if(has_post_thumbnail()){
+		  	the_post_thumbnail('wallsize');
+
+		  } 
+		  else{
+		  	echo("<div></div>");
+		  }
+		} else {
+		  //normal page
+		  ?><div class="exerpt">
 			<?= the_content();?>
-		</div>
+			</div><?php
+		}
+		?>
 		
 		<footer>
 			<?php the_author_link(); the_date( '', ' ', '', true ); ?>

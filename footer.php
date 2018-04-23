@@ -7,9 +7,9 @@
 		<a href="<?=esc_attr( get_option( 'facebook' ) )?>"> facebook</a> 
 		<?php
 		
-	}else{echo "string";}
+	}else{echo "no facebook link";}
 		?>
-		<a href="<?=esc_attr( get_option( 'instagram' ) )?>"> facebook</a> 
+		<a href="<?=esc_attr( get_option( 'instagram' ) )?>"> instagram</a> 
 		<?php
 
 		

@@ -123,6 +123,7 @@ body header nav.fixed{
 	border-bottom: 1px solid var(--dark);
 	bottom: auto;
 	z-index: 100;
+	box-shadow: 0px 0px 6px var(--dark);
 
 }
 body header nav.fixed a{
