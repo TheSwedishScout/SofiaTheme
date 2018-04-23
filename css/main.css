@@ -124,6 +124,7 @@ body header nav.fixed{
 	bottom: auto;
 	z-index: 100;
 	box-shadow: 0px 0px 6px var(--dark);
+	animation: fixed-nav-appere .3s forwards;
 
 }
 body header nav.fixed a{
@@ -200,10 +201,15 @@ header a.karnamn{
 	text-align: center;
 	color: var(--blue);
 	text-shadow: 3px 3px 6px rgba(14,14,14,0.4);
+	transition: font-size .15s ease-out, text-shadow .2s;
 }
 header a.karnamn:hover{
 	text-decoration: underline;
 	text-shadow: 1px 1px 3px rgba(14,14,14,0.4);
+}
+header a.karnamn:active{
+	font-size: 133.5px;
+	text-shadow: 0px 0px 2px rgba(14,14,14,0.4);
 }
 header a.karnamn img{
 	-webkit-filter: drop-shadow( 3px 3px 6px rgba(14,14,14,0.4));
@@ -223,7 +229,7 @@ body.home header a.karnamn{
     /* transform: translateX(-50%) translateY(-50%); */
     text-align: center;
 }
-body > header > #action-btn{
+body > header > .action-btn{
 	display: block;
 	position: absolute;
 	left: 0;
@@ -231,7 +237,7 @@ body > header > #action-btn{
 	bottom:30%;
 	text-align: center;
 }
-body > header > #action-btn a{
+ .action-btn a{
 	display: inline-block;
 	padding: 16px;
 	background-color: var(--blue);
@@ -242,12 +248,31 @@ body > header > #action-btn a{
 	border-radius: 8px;
 	box-shadow: 3px 3px 6px rgba(14,14,14,0.4);
 }
-body > header > #action-btn a:hover{
+.action-btn a:hover{
+	transition: color .2s, background-color .2s;
 	text-decoration: underline;
 	color: var(--blue);
 	background-color: var(--light);
 	box-shadow: 1px 1px 3px rgba(14,14,14,0.4);
 
+}
+.avdelningar-nav{
+	display: flex;
+	list-style: none;
+	width: var(--width);
+	margin:0 auto;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+    align-items: center;
+
+}
+.avdelningar-nav li a{
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-row: 100px 1em;
+	grid-gap: 10px;
+	justify-items: center;
 }
 /*--------------------------------------------------------MAIN-------------------------------------------------------*/
 /*--------------------------------------------------------MAIN-------------------------------------------------------*/
@@ -352,4 +377,26 @@ body > footer .karnamn:hover{
 }
 body > footer .karnamn img{
 	height: 30px;
+}
+.social-aria{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	padding-right: 30px;
+    box-sizing: border-box;
+    width: 100%;
+    align-items: center;
+}
+.social-aria img{
+	width: 100px;
+	filter: invert(1);
+}
+.social-aria img:hover{
+	filter: invert(0.5);	
+}
+
+
+@keyframes fixed-nav-appere {
+    from {transform: translateY(-37px);}
+    to {transform: translateY(0px);}
 }
