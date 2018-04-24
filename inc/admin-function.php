@@ -30,6 +30,7 @@ function sofia_max_cusom_settings(){
 	register_setting( 'Scout_settings_group_avdelningar', 'äventyrare' );
 	register_setting( 'Scout_settings_group_avdelningar', 'utmanare' );
 	register_setting( 'Scout_settings_group_avdelningar', 'rover' );
+	add_settings_section( 'sofia-max-social-media', 'Sociala medier', 'sofia_max_sociala_medier_options', 'Scout_max' );
 	
 
 
