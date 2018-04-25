@@ -238,6 +238,7 @@ body > header > .action-btn{
 	bottom:30%;
 	text-align: center;
 }
+header button.caldera-forms-modal, footer button.caldera-forms-modal,
  .action-btn a{
 	display: inline-block;
 	padding: 16px;
@@ -249,17 +250,23 @@ body > header > .action-btn{
 	border-radius: 8px;
 	box-shadow: 3px 3px 6px rgba(14,14,14,0.4);
 	transission: transform 1s;
+	border: none;
 }
-.action-btn a:hover{
+header button.caldera-forms-modal:hover, .action-btn a:hover, footer button.caldera-forms-modal:hover{
 	transition: color .2s, background-color .2s;
 	text-decoration: underline;
 	color: var(--blue);
 	background-color: var(--light);
 	box-shadow: 1px 1px 3px rgba(14,14,14,0.4);
-
+	cursor: pointer; 
 }
-.action-btn a:active{
+header button.caldera-forms-modal:active, .action-btn a:active, footer button.caldera-forms-modal:active{
 	transform: scale(0.98);
+	border:none;
+}
+.caldera-forms-modal:focus{
+	border:none;
+	outline: none;
 }
 .avdelningar-nav{
 	display: flex;
