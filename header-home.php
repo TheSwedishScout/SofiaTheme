@@ -23,37 +23,72 @@
 	</nav>
 </header>
 <ul class="avdelningar-nav">
-	<li>
-		Bävrarna
-	</li>
-	<li>
-		<a href="avdelningar/sparare/">
-			<img src="<?= get_template_directory_uri()."/images/avdelningar/spårare.png"; ?>">
-			Spårarna
-		</a>
-	</li>
-	<li>
-		<a href="avdelningar/upptackare/">
-			<img src="<?= get_template_directory_uri()."/images/avdelningar/upptäckare.png"; ?>">
-			upptäckarna
-		</a>
-	</li>
-	<li>
-		<a href="avdelningar/aventyrarna/">
-			<img src="<?= get_template_directory_uri()."/images/avdelningar/äventyrare.png"; ?>">
-			Äventyranra
-		</a>
-	</li>
-	<li>
-		<a href="avdelningar/utmanarna/">
+	<?php
+		if (!empty(get_option( 'bäver' ))){
+			?>
+			<li>
+				<a href="<?= get_option( 'bäver' );?>">
+					<img src="<?= get_template_directory_uri()."/images/avdelningar/bäver.png"; ?>">
+					Spårarna
+				</a>
+			</li>
+			<?php
+			
+		}
+		if (!empty(get_option( 'spårare' ))){
+			?>
+			<li>
+				<a href="<?= get_option( 'spårare' );?>">
+					<img src="<?= get_template_directory_uri()."/images/avdelningar/spårare.png"; ?>">
+					Spårarna
+				</a>
+			</li>
+			<?php
+			
+		}
+		if (!empty(get_option( 'upptäckare' ))){
+			?>
+			<li>
+				<a href="<?= get_option( 'upptäckare' );?>">
+					<img src="<?= get_template_directory_uri()."/images/avdelningar/upptäckare.png"; ?>">
+					Spårarna
+				</a>
+			</li>
+			<?php
+			
+		}
+		if (!empty(get_option( 'äventyrare' ))){
+			?>
+			<li>
+				<a href="<?= get_option( 'äventyrare' );?>">
+					<img src="<?= get_template_directory_uri()."/images/avdelningar/äventyrare.png"; ?>">
+					Spårarna
+				</a>
+			</li>
+			<?php
+			
+		}
+		if (!empty(get_option( 'utmanare' ))){
+			?>
+			<li>
+				<a href="<?= get_option( 'utmanare' );?>">
 			<img src="<?= get_template_directory_uri()."/images/avdelningar/utmanare.png"; ?>">
-			Utmanarna
-		</a>
-	</li>
-	<li>
-		<a href="avdelningar/rover-19/">
+					Spårarna
+				</a>
+			</li>
+			<?php
+			
+		}
+		if (!empty(get_option( 'rover' ))){
+			?>
+			<li>
+				<a href="<?= get_option( 'rover' );?>">
 			<img src="<?= get_template_directory_uri()."/images/avdelningar/rover.png"; ?>">
-			Rover
-		</a>
-	</li>
+					Spårarna
+				</a>
+			</li>
+			<?php
+			
+		}
+	?>
 </ul>

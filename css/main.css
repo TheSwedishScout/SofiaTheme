@@ -201,15 +201,16 @@ header a.karnamn{
 	text-align: center;
 	color: var(--blue);
 	text-shadow: 3px 3px 6px rgba(14,14,14,0.4);
-	transition: font-size .15s ease-out, text-shadow .2s;
+	transition: transform .15s ease-out, text-shadow .2s;
 }
 header a.karnamn:hover{
 	text-decoration: underline;
 	text-shadow: 1px 1px 3px rgba(14,14,14,0.4);
 }
 header a.karnamn:active{
-	font-size: 133.5px;
+	//font-size: 133.5px;
 	text-shadow: 0px 0px 2px rgba(14,14,14,0.4);
+	transform: scale(.98);
 }
 header a.karnamn img{
 	-webkit-filter: drop-shadow( 3px 3px 6px rgba(14,14,14,0.4));
@@ -247,6 +248,7 @@ body > header > .action-btn{
 	font-size: 20px;
 	border-radius: 8px;
 	box-shadow: 3px 3px 6px rgba(14,14,14,0.4);
+	transission: transform 1s;
 }
 .action-btn a:hover{
 	transition: color .2s, background-color .2s;
@@ -255,6 +257,9 @@ body > header > .action-btn{
 	background-color: var(--light);
 	box-shadow: 1px 1px 3px rgba(14,14,14,0.4);
 
+}
+.action-btn a:active{
+	transform: scale(0.98);
 }
 .avdelningar-nav{
 	display: flex;

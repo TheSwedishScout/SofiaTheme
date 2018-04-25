@@ -30,7 +30,13 @@ function sofia_max_cusom_settings(){
 	register_setting( 'Scout_settings_group_avdelningar', 'äventyrare' );
 	register_setting( 'Scout_settings_group_avdelningar', 'utmanare' );
 	register_setting( 'Scout_settings_group_avdelningar', 'rover' );
-	add_settings_section( 'sofia-max-social-media', 'Sociala medier', 'sofia_max_sociala_medier_options', 'Scout_max' );
+	add_settings_section( 'sofia-max-Avdelningar', 'avdelningar', 'sofia_max_avdelnigar_sidor', 'Scout_max' );
+	add_settings_field( 'bäver-link', 'bäver', 'sofia_max_insert_link', 'Scout_max', 'sofia-max-Avdelningar', array( 'for' => 'bäver', 'type'=>"text" ));
+	add_settings_field( 'spårare-link', 'spårare', 'sofia_max_insert_social_media', 'Scout_max', 'sofia-max-Avdelningar', array( 'for' => 'spårare', 'type'=>"text" ));
+	add_settings_field( 'upptäckare-link', 'upptäckare', 'sofia_max_insert_social_media', 'Scout_max', 'sofia-max-Avdelningar', array( 'for' => 'upptäckare', 'type'=>"text" ));
+	add_settings_field( 'äventyrare-link', 'äventyrare', 'sofia_max_insert_social_media', 'Scout_max', 'sofia-max-Avdelningar', array( 'for' => 'äventyrare', 'type'=>"text" ));
+	add_settings_field( 'utmanare-link', 'utmanare', 'sofia_max_insert_social_media', 'Scout_max', 'sofia-max-Avdelningar', array( 'for' => 'utmanare', 'type'=>"text" ));
+	add_settings_field( 'rover-link', 'rover', 'sofia_max_insert_social_media', 'Scout_max', 'sofia-max-Avdelningar', array( 'for' => 'rover', 'type'=>"text" ));
 	
 
 
@@ -40,7 +46,17 @@ function sofia_max_sociala_medier_options()
 {
 	echo "Länkar till sociala medier som kåren använder";
 }
+function sofia_max_avdelnigar_sidor(){
+	echo "<hr>";
+	return "true";
+}
 function sofia_max_insert_social_media($args){
+	$info = esc_attr( get_option( $args['for'] ) );
+	?>
+	<input type="text" name="<?= $args['for'] ?>" placeholder="<?= $args['for'] ?> link" value="<?= $info; ?>">
+	<?php
+}
+function sofia_max_insert_link($args){
 	$info = esc_attr( get_option( $args['for'] ) );
 	?>
 	<input type="text" name="<?= $args['for'] ?>" placeholder="<?= $args['for'] ?> link" value="<?= $info; ?>">
@@ -55,6 +71,7 @@ function sofia_max_theme_create_page(){
 	<form method="POST" action="options.php">
 		<?php
 			settings_fields( 'Scout_settings_group_social' );
+			settings_fields( 'Scout_settings_group_avdelningar' );
 			do_settings_sections( "Scout_max" );
 			submit_button();
 		 ?>
