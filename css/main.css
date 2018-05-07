@@ -1,6 +1,7 @@
 :root{
 	/*--------------------------------------*/
-	--width: 		1362px;
+	--max-width: 		1362px;
+	--max-width: 		400px;
 	/*--------------------------------------*/
 	--dark: 		rgb(40,39,39);
 	/*--------------------------------------*/
@@ -79,6 +80,7 @@ body{
 	margin: 0;
 	font-size: 1em;
 	font-family: garamond;
+
 }
 p, th, td, li, dd, dt, ul, ol, blockquote, q, acronym, abbr, a, input, select, textarea {
 	font-family: inherit;
@@ -109,92 +111,54 @@ body.home.admin-bar header{
 body > header{
 	background-size: cover;
 	margin-bottom: 18px;
-}
-body.home header nav{
-	position: absolute;
-	bottom: 0;
-	left: 0;
-	right: 0;
-}
-body header nav.fixed{
-	position: fixed;
-	width: 100%;
-	background-color: rgba(255, 255, 255, 1);
-	border-bottom: 1px solid var(--dark);
-	bottom: auto;
-	z-index: 100;
-	box-shadow: 0px 0px 6px var(--dark);
-	animation: fixed-nav-appere .3s forwards;
-
-}
-body header nav.fixed a{
-	padding: 8px 0;
-}
-body header nav.fixed ul li.menu-item-home{
-	display: block;
+	position: relative;
 }
 
-body header nav{
-	background-color: rgba(255, 255, 255, 0.5);
-}
-body header nav ul{
-	display: grid;
-	grid-auto-columns: 1fr;
-	grid-auto-flow: column;
-	max-width: var(--width);
-	margin: 0 auto;
-	list-style: none;
-
-}
-body header nav ul li.menu-item-home{
-	display: none
-}
 body header nav ul li.menu-item-home a:before{
-	background-image: url(../images/Scoutsymbolen_rgb.png);
-	height: 0.9em;
-	width: 1em;
-	content: "";
-	background-size: 1em 1em;
-	display: inline-block;
-}
-body header nav a{
-	font-family: TeeULight;
-	display: block;
-	padding: 18px 0;
-	text-align: center;
-	width: 100%;
-	text-decoration: none;
-	color: var(--dark);
-}
-body header nav a:hover{
-	background-color: var(--dark);
-	color: var(--light);
+		background-image: url(../images/Scoutsymbolen_rgb.png);
+		height: 0.9em;
+		width: 1em;
+		content: "";
+		background-size: 1em 1em;
+		display: inline-block;
+	}
+	body header nav a{
+		font-family: TeeULight;
+		display: block;
+		padding: 18px 0;
+		width: 100%;
+		text-decoration: none;
+		color: var(--dark);
+		padding-left: 16px;
+	}
+	body header nav a:hover{
+		background-color: var(--dark);
+		color: var(--light);
 
-}
-body header nav a:active{
-	background-color: var(--blue);
-}
-body header nav .current-menu-item a, body header nav .current_page_item a{
-	background-color: var(--dark);
-	color: var(--light);
-} 
-.current-page-ancestor a{
-	background-color: var(--blue);
-	color: var(--light);
+	}
+	body header nav a:active{
+		background-color: var(--blue);
+	}
+	body header nav .current-menu-item a, body header nav .current_page_item a{
+		background-color: var(--blue);
+		color: var(--light);
+	} 
+	.current-page-ancestor > a{
+		background-color: var(--blue);
+		color: var(--light);
 
-}
-.submenu li{
-	border-top: 1px solid var(--dark);
-}
-.submenu a{
-	padding: 2px 0;
-}
-.fixed .submenu a{
-	padding: 0;
-}
+	}
+	.sub-menu{
+		padding-left: 16px;
+		list-style: none;
+	}
+
 header a.karnamn{
+	position: absolute;
+	top: 16px;
+	width: 100%;
+	font-size: 45px;
 	display: block;
-	font-size: 134px;
 	text-decoration: none;
 	font-family: ScouternaRounded;
 	text-transform: uppercase;
@@ -202,6 +166,10 @@ header a.karnamn{
 	color: var(--blue);
 	text-shadow: 3px 3px 6px rgba(14,14,14,0.4);
 	transition: transform .15s ease-out, text-shadow .2s;
+}
+header a.karnamn >div {
+	
+	display: inline-block;
 }
 header a.karnamn:hover{
 	text-decoration: underline;
@@ -226,8 +194,8 @@ body.home header a.karnamn{
 	position: absolute;
     left: 0;
     right: 0;
-    bottom: 40%;
-    /* transform: translateX(-50%) translateY(-50%); */
+    top: auto;
+    bottom: 50%;
     text-align: center;
 }
 body > header > .action-btn{
@@ -235,7 +203,7 @@ body > header > .action-btn{
 	position: absolute;
 	left: 0;
 	right: 0;
-	bottom:30%;
+	bottom:40%;
 	text-align: center;
 }
 header button.caldera-forms-modal, footer button.caldera-forms-modal,
@@ -271,13 +239,20 @@ header button.caldera-forms-modal:active, .action-btn a:active, footer button.ca
 .avdelningar-nav{
 	display: flex;
 	list-style: none;
-	width: var(--width);
+	max-width: var(--max-width);
+	width: 100%;
 	margin:0 auto;
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
     align-items: center;
 
+}
+.avdelningar-nav img{
+	width: 100%;
+}
+.avdelningar-nav p{
+	//display: none;
 }
 .avdelningar-nav li a{
 	display: grid;
@@ -286,29 +261,94 @@ header button.caldera-forms-modal:active, .action-btn a:active, footer button.ca
 	grid-gap: 10px;
 	justify-items: center;
 }
-/*--------------------------------------------------------MAIN-------------------------------------------------------*/
-/*--------------------------------------------------------MAIN-------------------------------------------------------*/
-/*--------------------------------------------------------MAIN-------------------------------------------------------*/
-/*--------------------------------------------------------MAIN-------------------------------------------------------*/
-/*--------------------------------------------------------MAIN-------------------------------------------------------*/
-
-main{
-	width: var(--width);
-	margin: 0 auto;
+#topMeny{
+	width: 0;
+	overflow: hidden;
+	opacity: 0;
+	background: var(--light);
+	transition:width .2s, opacity .2s;
 }
+#hamburger{
+	display: block;
+	position: absolute;
+	top: 16px;
+	right: calc(100% - 16px - 75px);
+	
+	transition: right .2s;
+}
+#hamburger span{
+	display: block;
+	width: 75px;
+	height: 15px;
+	margin-bottom: 12px;
+	background: var(--dark);
+	border-radius: 10px;
+	transition: transform .4s, width .4s;
+}
+.karnamn img{
+	height: 32px;
+} 
+#topMeny.open{
+	width: 80%;
+	opacity: 1;
+	position: fixed;	
+	z-index: 100;
+	height: 100vh;
+}
+#topMeny .visabale{
+	display: block;
+}
+.admin-bar #hamburger.open{
+	top: 56px; 
+}
+#hamburger.open{
+	z-index: 101;
+	position: fixed;
+	right: calc(20% + 16px);
+}
+
+#hamburger.open span:nth-child(1){
+	
+	transform: rotate(45deg);
+    transform-origin: 0 50%;
+    //width: 91px;
+}
+#hamburger.open span:nth-child(2){
+	width: 0;
+	transform: translateX(25px);
+}
+#hamburger.open span:nth-child(3){
+    transform: rotate(-45deg);
+    transform-origin: 0 50%;
+   // width: 91px;
+
+}
+
+
+/*--------------------------------------------------------MAIN-------------------------------------------------------*/
+/*--------------------------------------------------------MAIN-------------------------------------------------------*/
+/*--------------------------------------------------------MAIN-------------------------------------------------------*/
+/*--------------------------------------------------------MAIN-------------------------------------------------------*/
+/*--------------------------------------------------------MAIN-------------------------------------------------------*/
 main article{
 	display: grid;
-	grid-template-columns:auto 258px;
-	grid-template-rows:auto 1fr;
 	grid-gap: 18px;
+	grid-template-columns:100%;
+
+	grid-template-rows: 50px auto auto 15px;
+
 }
 main article:not(:only-of-type):not(:last-child){
 	margin-bottom: 18px;
 	border-bottom: 1px solid var(--dark);
 }
-main article .heading{
-	grid-column: span 2;
+main{
+	box-sizing: border-box;
+	padding: 8px;
 }
+	/*
+
+*/
 
 .action-box{
 	background: var(--blue);
@@ -326,7 +366,7 @@ main article .heading{
 	margin: 18px 0;
 }
 .action-box > div{
-	max-width: var(--width);
+	max-width: var(--max-width);
 	margin: 0 auto;
 	color: var(--light);
 	display: grid;
@@ -336,12 +376,35 @@ main article .heading{
 	color: var(--light);
 }
 .action-box img{
-	
+	height: auto;
 	max-width: 258px;
 	width: 100%;
 	margin-top: 8px;
 	margin-bottom: 8px;
 }
+//Frontpage 
+body > main > div.frontpageNotes{
+	display: grid;
+}
+.frontpageNotes{
+	display: grid;
+	grid-gap:16px;
+	margin-top: 16px;
+}
+.frontpageNotes > *{
+	box-sizing: border-box;
+	padding: 8px;
+	background: rgba(220, 220, 220, 1);
+	box-shadow: 1px 1px 3px rgba(14,14,14,0.4);
+	border-radius: 2px;
+}
+
+.home main > img{
+	margin-top: 16px;
+	width: 100%;
+	height: auto;
+}
+
 /*-------------------------------------------------------------FOOTER-------------------------------------------------------------*/
 /*-------------------------------------------------------------FOOTER-------------------------------------------------------------*/
 /*-------------------------------------------------------------FOOTER-------------------------------------------------------------*/
@@ -349,16 +412,20 @@ main article .heading{
 /*-------------------------------------------------------------FOOTER-------------------------------------------------------------*/
 /*-------------------------------------------------------------FOOTER-------------------------------------------------------------*/
 /*-------------------------------------------------------------FOOTER-------------------------------------------------------------*/
+ul.avdelningar-nav.footer-aria{
+	margin-top:16px; 
+}
 body > footer{
 	background-color: var(--dark);
+	box-sizing: border-box;
 	color: var(--light);
 	margin-top: 18px;
 	display: grid;
-	grid-template-columns: repeat(3, 1fr);
-	grid-template-rows: 258px 44px;
 	justify-items: center;
 	align-items: center;
-	grid-template-areas: "kontakt action social" ". logga copy"
+	grid-template-areas: "action" "social" "logga" "kontakt" "copy";
+	grid-gap:16px;
+	padding: 16px;
 }
 body > footer > *:first-child{
 	grid-area: kontakt;
@@ -374,6 +441,7 @@ body > footer > *:nth-child(4){
 }
 body > footer > *:nth-child(5){
 	grid-area: copy;
+	text-align: right;
 }
 body > footer .karnamn{
 	font-size: 40px;
@@ -391,10 +459,10 @@ body > footer .karnamn img{
 	height: 30px;
 }
 .social-aria{
+	
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
-	padding-right: 30px;
     box-sizing: border-box;
     width: 100%;
     align-items: center;
@@ -405,6 +473,138 @@ body > footer .karnamn img{
 }
 .social-aria img:hover{
 	filter: invert(0.5);	
+}
+
+
+
+@media screen and (min-width: 1362px) {
+	:root{
+	/*--------------------------------------*/
+	--max-width: 		1362px;
+	}
+	
+	#hamburger{
+		display: none;
+	}
+
+	#topMeny{
+		width: 100%;
+		opacity: 1;
+		background: rgba(255, 255, 255, 0.5);
+	}
+	
+	#topMeny .submenu{
+		display: grid;
+	}
+	body.home header nav{
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+}
+	
+	body header nav a{
+		text-align: center;
+		}
+	body header nav.fixed{
+		position: fixed;
+		width: 100%;
+		background-color: rgba(255, 255, 255, 1);
+		border-bottom: 1px solid var(--dark);
+		bottom: auto;
+		z-index: 100;
+		box-shadow: 0px 0px 6px var(--dark);
+		animation: fixed-nav-appere .3s forwards;
+
+	}
+	body header nav.fixed a{
+		padding: 8px 0;
+	}
+	body header nav.fixed ul li.menu-item-home{
+		display: block;
+	}
+
+	body header nav{
+		background-color: rgba(255, 255, 255, 0.5);
+	}
+	body header nav ul{
+		display: grid;
+		grid-auto-columns: 1fr;
+		grid-auto-flow: column;
+		max-width: var(--max-width);
+		margin: 0 auto;
+		list-style: none;
+
+	}
+	body header nav ul li.menu-item-home{
+		display: none
+	}
+	
+	.submenu li{
+		border-top: 1px solid var(--dark);
+	}
+	.submenu a{
+		padding: 2px 0;
+	}
+	.fixed .submenu a{
+		padding: 0;
+	}
+	header a.karnamn{
+		font-size: 134px;
+		top: auto;
+	}
+	.karnamn img {
+    	height: auto;
+	}
+
+.frontpageNotes{
+	grid-template-columns: 50% 50%;
+	grid-template-rows: 1fr 1fr;
+}
+main{
+	margin: 0 auto;
+	max-width: var(--max-width);
+}
+main article{
+	grid-template-columns:auto 258px;
+	grid-template-rows:auto 1fr auto;
+	grid-template-areas: "header image" "article image" "footer footer"
+}
+
+main article img{
+	grid-area: image;
+}
+main article .heading{
+	grid-area: header;
+}
+main article .exerpt{
+	grid-area: article;
+}
+main article footer{
+	grid-area: footer;
+}
+
+	body > footer{
+	grid-template-columns: repeat(3, 1fr);
+	grid-template-rows: 258px 44px;
+	grid-template-areas: "kontakt action social" ". logga copy";
+	}
+	body > footer .social-aria{
+		padding-right: 30px;
+	}
+}
+
+
+@media screen and (max-width: 600px) {
+	header a.karnamn >div {
+		transform: none !important;
+	}
+}
+@media screen and (max-width: 500px) {
+	header a.karnamn{
+		left: 107px;
+		width: auto;
+	}
 }
 
 

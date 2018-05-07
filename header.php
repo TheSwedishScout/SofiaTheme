@@ -19,8 +19,13 @@
 			<?php
 		}
 		?>">
+		<div id="hamburger">
+			<span></span>
+			<span></span>
+			<span></span>
+		</div>	
 		<nav id="topMeny">
-		  <?php wp_nav_menu('main'); 
+		  <?php wp_nav_menu(array('menu' => 'main' , 'container_id'=> 'main-menu' )); 
 			$post = get_post();
 			if( is_page() ) { 
 			        /* Get an array of Ancestors and Parents if they exist */

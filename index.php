@@ -22,10 +22,10 @@ if ( have_posts() ) {
 
 		  if(has_post_thumbnail()){
 		  	the_post_thumbnail('wallsize');
-
+		  	//echo "string";
 		  } 
 		  else{
-		  	echo("<div></div>");
+		  	echo("<div>image</div>");
 		  }
 		} else {
 		  //normal page

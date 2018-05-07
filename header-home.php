@@ -18,77 +18,15 @@
 	<?php endif; ?>
 	<!--<button>action</button>-->
 	
+		<div id="hamburger">
+			<span></span>
+			<span></span>
+			<span></span>
+		</div>
 	<nav id="topMeny">
 	  <?php wp_nav_menu('main'); ?>
 	</nav>
 </header>
-<ul class="avdelningar-nav">
-	<?php
-		if (!empty(get_option( 'bäver' ))){
-			?>
-			<li>
-				<a href="<?= get_option( 'bäver' );?>">
-					<img src="<?= get_template_directory_uri()."/images/avdelningar/bäver.png"; ?>">
-					Spårarna
-				</a>
-			</li>
-			<?php
-			
-		}
-		if (!empty(get_option( 'spårare' ))){
-			?>
-			<li>
-				<a href="<?= get_option( 'spårare' );?>">
-					<img src="<?= get_template_directory_uri()."/images/avdelningar/spårare.png"; ?>">
-					Spårarna
-				</a>
-			</li>
-			<?php
-			
-		}
-		if (!empty(get_option( 'upptäckare' ))){
-			?>
-			<li>
-				<a href="<?= get_option( 'upptäckare' );?>">
-					<img src="<?= get_template_directory_uri()."/images/avdelningar/upptäckare.png"; ?>">
-					Spårarna
-				</a>
-			</li>
-			<?php
-			
-		}
-		if (!empty(get_option( 'äventyrare' ))){
-			?>
-			<li>
-				<a href="<?= get_option( 'äventyrare' );?>">
-					<img src="<?= get_template_directory_uri()."/images/avdelningar/äventyrare.png"; ?>">
-					Spårarna
-				</a>
-			</li>
-			<?php
-			
-		}
-		if (!empty(get_option( 'utmanare' ))){
-			?>
-			<li>
-				<a href="<?= get_option( 'utmanare' );?>">
-			<img src="<?= get_template_directory_uri()."/images/avdelningar/utmanare.png"; ?>">
-					Spårarna
-				</a>
-			</li>
-			<?php
-			
-		}
-		if (!empty(get_option( 'rover' ))){
-			?>
-			<li>
-				<a href="<?= get_option( 'rover' );?>">
-			<img src="<?= get_template_directory_uri()."/images/avdelningar/rover.png"; ?>">
-					Spårarna
-				</a>
-			</li>
-			<?php
-			
-		}
-	?>
-</ul>
+<?php
+the_avdelningarna();
+?>

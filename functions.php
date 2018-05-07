@@ -1,5 +1,6 @@
 <?php
 include 'inc/admin-function.php';
+include 'inc/frontpage.php';
 // Add Shortcode
 function sofia_max_infobar( $atts , $content = null ) {
 
@@ -36,6 +37,7 @@ function sofia_max_additional_custom_styles() {
 
     /*Enqueue The Styles*/
     wp_enqueue_style( 'Null', get_template_directory_uri() . '/css/null.css' );
+    wp_enqueue_style( 'Null', get_template_directory_uri() . '/css/wpCore.css' );
     wp_enqueue_style( 'SofiaScoutkår', get_template_directory_uri() . '/css/main.css' );
 
     wp_enqueue_script("jquery");
@@ -113,8 +115,11 @@ function the_kårnamn()
 {
 	//$karnamn = str_replace("scoutkår", "", get_bloginfo( 'name' )); 
 	$karnamn = explode("scoutkår", utf8_encode(strtolower(utf8_decode(get_bloginfo( 'name' )))));
+	$karnamn2 = utf8_encode(strtolower(utf8_decode(get_bloginfo( 'name' ))));
 	?>
-	<a href="<?= get_home_url(); ?>" class="karnamn logo"><?= $karnamn[0]?> <?php
+	<a href="<?= get_home_url(); ?>" class="karnamn logo">
+		<div>
+		<?= $karnamn[0]?> <?php
 		if(has_custom_logo()){
 			
 			$custom_logo_id = get_theme_mod( 'custom_logo' );
@@ -127,7 +132,86 @@ function the_kårnamn()
 			
 
 		}
-	?> Scoutkår <?php //echo $karnamn[1]; ?></a><?php
+		if (strpos($karnamn2, 'scoutkår') !== false) {
+		    echo ' Scoutkår</div>';
+		}
+
+	//echo $karnamn[1]; ?></a><?php
+}
+
+function the_avdelningarna($class=""){
+	?>
+	<ul class="avdelningar-nav <?=$class; ?>">
+	<?php
+		if (!empty(get_option( 'bäver' ))){
+			?>
+			<li>
+				<a href="<?= get_option( 'bäver' );?>">
+					<img src="<?= get_template_directory_uri()."/images/avdelningar/bäver.png"; ?>">
+					<p>Spårarna</p>
+				</a>
+			</li>
+			<?php
+			
+		}
+		if (!empty(get_option( 'spårare' ))){
+			?>
+			<li>
+				<a href="<?= get_option( 'spårare' );?>">
+					<img src="<?= get_template_directory_uri()."/images/avdelningar/spårare.png"; ?>">
+					<p>Spårarna</p>
+				</a>
+			</li>
+			<?php
+			
+		}
+		if (!empty(get_option( 'upptäckare' ))){
+			?>
+			<li>
+				<a href="<?= get_option( 'upptäckare' );?>">
+					<img src="<?= get_template_directory_uri()."/images/avdelningar/upptäckare.png"; ?>">
+					<p>Upptäckarna</p>
+				</a>
+			</li>
+			<?php
+			
+		}
+		if (!empty(get_option( 'äventyrare' ))){
+			?>
+			<li>
+				<a href="<?= get_option( 'äventyrare' );?>">
+					<img src="<?= get_template_directory_uri()."/images/avdelningar/äventyrare.png"; ?>">
+					<p>Äventyrarna</p>
+				</a>
+			</li>
+			<?php
+			
+		}
+		if (!empty(get_option( 'utmanare' ))){
+			?>
+			<li>
+				<a href="<?= get_option( 'utmanare' );?>">
+			<img src="<?= get_template_directory_uri()."/images/avdelningar/utmanare.png"; ?>">
+					<p>Utmanarna</p>
+				</a>
+			</li>
+			<?php
+			
+		}
+		if (!empty(get_option( 'rover' ))){
+			?>
+			<li>
+				<a href="<?= get_option( 'rover' );?>">
+			<img src="<?= get_template_directory_uri()."/images/avdelningar/rover.png"; ?>">
+					<p>Rover</p>
+				</a>
+			</li>
+			<?php
+			
+		}
+	?>
+</ul>
+<?php
 }
 
 ?>

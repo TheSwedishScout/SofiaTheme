@@ -1,3 +1,4 @@
+<?php the_avdelningarna('footer-aria'); ?>
 <footer>
 	<div>Kontakt vänster</div>
 	<div>
