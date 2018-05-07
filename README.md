@@ -6,3 +6,5 @@ printa avdelningarna med namn på försra sidans topp samt vid footerna på alla
 
 sub-menu on mobile 
 submenu on desktop to show
+
+Save for both for social and avdelningar dosent work
