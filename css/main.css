@@ -151,6 +151,14 @@ body header nav ul li.menu-item-home a:before{
 	.sub-menu{
 		padding-left: 16px;
 		list-style: none;
+		transition: height 1s;
+	}
+	.menu-item-has-children > .sub-menu{
+		height: 0;
+		overflow: hidden;
+	}
+	.current-menu-parent > .sub-menu{
+		height: 100%;
 	}
 
 header a.karnamn{
