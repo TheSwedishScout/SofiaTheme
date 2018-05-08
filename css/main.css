@@ -139,10 +139,10 @@ body header nav ul li.menu-item-home a:before{
 	body header nav a:active{
 		background-color: var(--blue);
 	}
-	body header nav .current-menu-item a, body header nav .current_page_item a{
+	body header nav .current-menu-item > a, body header nav .current_page_item > a{
 		background-color: var(--blue);
 		color: var(--light);
-	} 
+	}
 	.current-page-ancestor > a{
 		background-color: var(--blue);
 		color: var(--light);
@@ -153,20 +153,22 @@ body header nav ul li.menu-item-home a:before{
 		list-style: none;
 		transition: height 1s;
 	}
+	.submenu{
+		display: none;
+	}
 	.menu-item-has-children > .sub-menu{
-		height: 0;
+		max-height: 0;
 		overflow: hidden;
 	}
+	.current_page_item.menu-item-has-children > .sub-menu,
 	.current-menu-parent > .sub-menu{
-		height: 100%;
+		max-height: 100%;
 	}
 
-header a.karnamn{
-	position: absolute;
-	top: 16px;
-	width: 100%;
+header .karnamn a{
+
 	font-size: 45px;
-	display: block;
+	display: inline-block;
 	text-decoration: none;
 	font-family: ScouternaRounded;
 	text-transform: uppercase;
@@ -175,30 +177,36 @@ header a.karnamn{
 	text-shadow: 3px 3px 6px rgba(14,14,14,0.4);
 	transition: transform .15s ease-out, text-shadow .2s;
 }
-header a.karnamn >div {
-	
+header div.karnamn {
+	position: absolute;
+	top: 16px;
+	width: 100%;
 	display: inline-block;
+	text-align: center;
 }
-header a.karnamn:hover{
+header .karnamn a:hover{
 	text-decoration: underline;
 	text-shadow: 1px 1px 3px rgba(14,14,14,0.4);
 }
-header a.karnamn:active{
+header div.karnamn a:active{
 	//font-size: 133.5px;
 	text-shadow: 0px 0px 2px rgba(14,14,14,0.4);
 	transform: scale(.98);
 }
-header a.karnamn img{
+header div.karnamn a img{
 	-webkit-filter: drop-shadow( 3px 3px 6px rgba(14,14,14,0.4));
     filter: filter: drop-shadow( 3px 3px 6px rgba(14,14,14,0.4));
     -ms-filter: "progid:DXImageTransform.Microsoft.Dropshadow(OffX=12, OffY=12, Color='#444')";
 }
-header a.karnamn:hover img{
+header div.karnamn a:hover img{
 	-webkit-filter: drop-shadow( 1px 1px 3px rgba(14,14,14,0.4));
     filter: filter: drop-shadow( 1px 1px 3px rgba(14,14,14,0.4));
     -ms-filter: "progid:DXImageTransform.Microsoft.Dropshadow(OffX=12, OffY=12, Color='#444')";
 }
-body.home header a.karnamn{
+header div.karnamn div {
+	display: inline-block;
+}
+body.home header div.karnamn{
 	position: absolute;
     left: 0;
     right: 0;
@@ -234,7 +242,7 @@ header button.caldera-forms-modal:hover, .action-btn a:hover, footer button.cald
 	color: var(--blue);
 	background-color: var(--light);
 	box-shadow: 1px 1px 3px rgba(14,14,14,0.4);
-	cursor: pointer; 
+	cursor: pointer;
 }
 header button.caldera-forms-modal:active, .action-btn a:active, footer button.caldera-forms-modal:active{
 	transform: scale(0.98);
@@ -281,7 +289,8 @@ header button.caldera-forms-modal:active, .action-btn a:active, footer button.ca
 	position: absolute;
 	top: 16px;
 	right: calc(100% - 16px - 75px);
-	
+	z-index: 101;
+
 	transition: right .2s;
 }
 #hamburger span{
@@ -295,11 +304,11 @@ header button.caldera-forms-modal:active, .action-btn a:active, footer button.ca
 }
 .karnamn img{
 	height: 32px;
-} 
+}
 #topMeny.open{
 	width: 80%;
 	opacity: 1;
-	position: fixed;	
+	position: fixed;
 	z-index: 100;
 	height: 100vh;
 }
@@ -307,16 +316,15 @@ header button.caldera-forms-modal:active, .action-btn a:active, footer button.ca
 	display: block;
 }
 .admin-bar #hamburger.open{
-	top: 56px; 
+	top: 56px;
 }
 #hamburger.open{
-	z-index: 101;
 	position: fixed;
 	right: calc(20% + 16px);
 }
 
 #hamburger.open span:nth-child(1){
-	
+
 	transform: rotate(45deg);
     transform-origin: 0 50%;
     //width: 91px;
@@ -353,6 +361,7 @@ main article:not(:only-of-type):not(:last-child){
 main{
 	box-sizing: border-box;
 	padding: 8px;
+	width: 100%;
 }
 	/*
 
@@ -367,7 +376,7 @@ main{
     width: 100%;
     left: 0;
     box-sizing: border-box;
-    
+
 }
 .clear-action-box{
 	height: 258px;
@@ -378,7 +387,7 @@ main{
 	margin: 0 auto;
 	color: var(--light);
 	display: grid;
-    grid-template-columns:auto 258px; 
+    grid-template-columns:auto 258px;
 }
 .action-box div h3{
 	color: var(--light);
@@ -390,7 +399,7 @@ main{
 	margin-top: 8px;
 	margin-bottom: 8px;
 }
-//Frontpage 
+//Frontpage
 body > main > div.frontpageNotes{
 	display: grid;
 }
@@ -421,7 +430,7 @@ body > main > div.frontpageNotes{
 /*-------------------------------------------------------------FOOTER-------------------------------------------------------------*/
 /*-------------------------------------------------------------FOOTER-------------------------------------------------------------*/
 ul.avdelningar-nav.footer-aria{
-	margin-top:16px; 
+	margin-top:16px;
 }
 body > footer{
 	background-color: var(--dark);
@@ -460,14 +469,14 @@ body > footer .karnamn{
 	text-decoration: none;
 
 }
-body > footer .karnamn:hover{
+body > footer .karnamn a:hover{
 	text-decoration: underline;
 }
 body > footer .karnamn img{
 	height: 30px;
 }
 .social-aria{
-	
+
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
@@ -480,7 +489,7 @@ body > footer .karnamn img{
 	filter: invert(1);
 }
 .social-aria img:hover{
-	filter: invert(0.5);	
+	filter: invert(0.5);
 }
 
 
@@ -490,7 +499,7 @@ body > footer .karnamn img{
 	/*--------------------------------------*/
 	--max-width: 		1362px;
 	}
-	
+
 	#hamburger{
 		display: none;
 	}
@@ -500,7 +509,7 @@ body > footer .karnamn img{
 		opacity: 1;
 		background: rgba(255, 255, 255, 0.5);
 	}
-	
+
 	#topMeny .submenu{
 		display: grid;
 	}
@@ -510,7 +519,7 @@ body > footer .karnamn img{
 	left: 0;
 	right: 0;
 }
-	
+
 	body header nav a{
 		text-align: center;
 		}
@@ -547,7 +556,12 @@ body > footer .karnamn img{
 	body header nav ul li.menu-item-home{
 		display: none
 	}
-	
+	.sub-menu{
+		display: none;
+	}
+	.submenu{
+		display: block;
+	}
 	.submenu li{
 		border-top: 1px solid var(--dark);
 	}
@@ -557,9 +571,11 @@ body > footer .karnamn img{
 	.fixed .submenu a{
 		padding: 0;
 	}
-	header a.karnamn{
-		font-size: 134px;
+	header div.karnamn {
 		top: auto;
+	}
+	header div.karnamn a{
+		font-size: 134px
 	}
 	.karnamn img {
     	height: auto;
@@ -604,12 +620,12 @@ main article footer{
 
 
 @media screen and (max-width: 600px) {
-	header a.karnamn >div {
+	header div.karnamn div {
 		transform: none !important;
 	}
 }
 @media screen and (max-width: 500px) {
-	header a.karnamn{
+	header div.karnamn{
 		left: 107px;
 		width: auto;
 	}
