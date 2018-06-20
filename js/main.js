@@ -23,7 +23,7 @@ jQuery(document).ready(function ($) {
 	  }
 
 	var imageOffset = ($(document).width()/2) - ($('.main-header .karnamn img').offset().left + $('.main-header .karnamn img').outerWidth()/2);
-	$('.main-header a.karnamn div')[0].style.transform = "translateX("+imageOffset+"px)";
+	$('.main-header div.karnamn div')[0].style.transform = "translateX("+imageOffset+"px)";
 	//debugger;
 	//.style.transform = "translateX("+hmm+"px)";
 	//debugger;

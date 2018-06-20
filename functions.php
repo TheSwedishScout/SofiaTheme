@@ -16,7 +16,7 @@ function sofia_max_infobar( $atts , $content = null ) {
 	);
 
 	/*kåd här*/
-	
+
 	/*KOLLA efter bilder i content och se till att de hamnar för sigkälva så de hamnar i höger */
 	$tor = "<div class='clear-action-box'></div>
 			<div class='action-box' style='background-color:{$atts['color']}'>
@@ -42,7 +42,7 @@ function sofia_max_additional_custom_styles() {
 
     wp_enqueue_script("jquery");
     wp_enqueue_script( 'SofiaScoutkårjs', get_template_directory_uri() . '/js/main.js' );
-    
+
 
 }
 
@@ -71,7 +71,7 @@ function sofia_max_widgets_init() {
         'before_widget' => '',
         'after_widget'  => '',
         'before_title'  => '<h2 class="widgettitle">',
-        'after_title'   => '</h2>', 
+        'after_title'   => '</h2>',
     ));
 }
 add_action( 'widgets_init', 'sofia_max_widgets_init' );
@@ -82,9 +82,9 @@ add_action( 'widgets_init', 'sofia_max_widgets_init' );
 
 add_action( 'after_setup_theme', 'sofia_max_theme_setup' );
 function sofia_max_theme_setup() {
-	add_image_size( 'logo_size', 100, 100, false );  
-	add_image_size( 'wallsize', 258 );  
-	add_image_size( 'pageHeader', 1920, 250, true );  
+	add_image_size( 'logo_size', 100, 100, false );
+	add_image_size( 'wallsize', 258 );
+	add_image_size( 'pageHeader', 1920, 250, true );
 
 
     /* Add theme support for:
@@ -113,30 +113,32 @@ function sofia_max_theme_setup() {
 
 function the_kårnamn()
 {
-	//$karnamn = str_replace("scoutkår", "", get_bloginfo( 'name' )); 
+	//$karnamn = str_replace("scoutkår", "", get_bloginfo( 'name' ));
 	$karnamn = explode("scoutkår", utf8_encode(strtolower(utf8_decode(get_bloginfo( 'name' )))));
 	$karnamn2 = utf8_encode(strtolower(utf8_decode(get_bloginfo( 'name' ))));
 	?>
-	<a href="<?= get_home_url(); ?>" class="karnamn logo">
+	<div class="karnamn logo">
 		<div>
+	<a href="<?= get_home_url(); ?>" >
+
 		<?= $karnamn[0]?> <?php
 		if(has_custom_logo()){
-			
+
 			$custom_logo_id = get_theme_mod( 'custom_logo' );
 			$logo_image = wp_get_attachment_image_src( $custom_logo_id , 'logo_size' );
-			
+
 			?><img src="<?= $logo_image[0] ?>"><?php
 		}else{
 			/*echo "Scoutemblem";*/
 			?><img src="<?= get_template_directory_uri() . '/images/Scoutsymbolen_rgb.png' ?>"><?php
-			
+
 
 		}
 		if (strpos($karnamn2, 'scoutkår') !== false) {
-		    echo ' Scoutkår</div>';
+		    echo ' Scoutkår';
 		}
 
-	//echo $karnamn[1]; ?></a><?php
+	//echo $karnamn[1]; ?></div></a></div><?php
 }
 
 function the_avdelningarna($class=""){
@@ -152,7 +154,7 @@ function the_avdelningarna($class=""){
 				</a>
 			</li>
 			<?php
-			
+
 		}
 		if (!empty(get_option( 'spårare' ))){
 			?>
@@ -163,7 +165,7 @@ function the_avdelningarna($class=""){
 				</a>
 			</li>
 			<?php
-			
+
 		}
 		if (!empty(get_option( 'upptäckare' ))){
 			?>
@@ -174,7 +176,7 @@ function the_avdelningarna($class=""){
 				</a>
 			</li>
 			<?php
-			
+
 		}
 		if (!empty(get_option( 'äventyrare' ))){
 			?>
@@ -185,7 +187,7 @@ function the_avdelningarna($class=""){
 				</a>
 			</li>
 			<?php
-			
+
 		}
 		if (!empty(get_option( 'utmanare' ))){
 			?>
@@ -196,7 +198,7 @@ function the_avdelningarna($class=""){
 				</a>
 			</li>
 			<?php
-			
+
 		}
 		if (!empty(get_option( 'rover' ))){
 			?>
@@ -207,7 +209,7 @@ function the_avdelningarna($class=""){
 				</a>
 			</li>
 			<?php
-			
+
 		}
 	?>
 </ul>
