@@ -151,11 +151,12 @@ body header nav ul li.menu-item-home a:before{
 	.sub-menu{
 		padding-left: 16px;
 		list-style: none;
-		transition: height 1s;
+		transition: height .2s;
 	}
 	.menu-item-has-children > .sub-menu{
 		height: 0;
 		overflow: hidden;
+
 	}
 	.current-menu-parent > .sub-menu{
 		height: 100%;
@@ -225,7 +226,7 @@ header button.caldera-forms-modal, footer button.caldera-forms-modal,
 	font-size: 20px;
 	border-radius: 8px;
 	box-shadow: 3px 3px 6px rgba(14,14,14,0.4);
-	transission: transform 1s;
+	transission: transform .4s;
 	border: none;
 }
 header button.caldera-forms-modal:hover, .action-btn a:hover, footer button.caldera-forms-modal:hover{
@@ -499,6 +500,7 @@ body > footer .karnamn img{
 		width: 100%;
 		opacity: 1;
 		background: rgba(255, 255, 255, 0.5);
+		overflow: visible;
 	}
 	
 	#topMeny .submenu{
@@ -513,6 +515,7 @@ body > footer .karnamn img{
 	
 	body header nav a{
 		text-align: center;
+		padding-left: 0;
 		}
 	body header nav.fixed{
 		position: fixed;
@@ -542,10 +545,32 @@ body > footer .karnamn img{
 		max-width: var(--max-width);
 		margin: 0 auto;
 		list-style: none;
+		position: relative;
 
 	}
 	body header nav ul li.menu-item-home{
 		display: none
+	}
+	body header nav .menu-item-has-children> .sub-menu{
+		position: absolute;
+		width: 100%;
+		margin: 0 auto;
+		padding: 0;
+		/* max-width: var(--max-width); */
+		left: 0;
+		bottom: -36px;
+	}
+	body header nav .menu-item-has-children> .sub-menu a{
+		padding: 8px 0;
+	}
+	body header nav .menu-item-has-children.current-menu-item > .sub-menu,
+	body header nav .menu-item-has-children.current-menu-ancestor > .sub-menu,
+	body header nav .menu-item-has-children:hover > .sub-menu{
+		background: var(--light);
+		height: 36px;
+	}
+	body header nav .menu-item-has-children:hover > .sub-menu{
+		z-index: 100;
 	}
 	
 	.submenu li{
@@ -559,7 +584,9 @@ body > footer .karnamn img{
 	}
 	header a.karnamn{
 		font-size: 134px;
+		line-height: 147px;
 		top: auto;
+		top: 94px; //-------------------------------------TBD
 	}
 	.karnamn img {
     	height: auto;

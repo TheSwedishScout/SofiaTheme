@@ -37,7 +37,7 @@
 				
 			//var_dump($id);
 		  ?>
-		  <ul class="submenu">
+		  <!-- <ul class="submenu">
 			<?php
 			wp_list_pages( array(
 			    'title_li'    => '',
@@ -48,7 +48,7 @@
 
 			?>
 		</ul>
-
+ -->
 		</nav>
 
 		  <?php the_kårnamn(); ?>
