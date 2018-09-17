@@ -6,7 +6,19 @@
 	<?php wp_head() ?>
 </head>
 <body <?php echo 'class="' . join( ' ', str_replace("custom-background", "", get_body_class())) . '"'; ?>>
-<header class="main-header" style="background-image: url(<?php header_image(); ?>);">
+
+	<?php
+	$img = get_header_image();
+	$luminance = get_avg_luminance($img);
+	//var_dump($luminance);
+	if ($luminance > 170) {
+		$imglum = "dark";
+	}else{
+		$imglum = "light";
+
+	}
+	 ?>
+<header class="main-header <?= $imglum; ?>" style="background-image: url(<?php header_image(); ?>);">
 	
 	<?php 
 	the_kårnamn();

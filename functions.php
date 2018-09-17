@@ -37,8 +37,11 @@ function sofia_max_additional_custom_styles() {
 
     /*Enqueue The Styles*/
     wp_enqueue_style( 'Null', get_template_directory_uri() . '/css/null.css' );
-    wp_enqueue_style( 'Null', get_template_directory_uri() . '/css/wpCore.css' );
-    wp_enqueue_style( 'SofiaScoutkår', get_template_directory_uri() . '/css/main.css' );
+    wp_enqueue_style( 'wpcore', get_template_directory_uri() . '/css/wpCore.css' );
+    wp_enqueue_style( 'SofiaScoutkårMain', get_template_directory_uri() . '/css/main.css' );
+    wp_enqueue_style( 'SofiaScoutkårHeader', get_template_directory_uri() . '/css/header.css' );
+    wp_enqueue_style( 'SofiaScoutkårBody', get_template_directory_uri() . '/css/body.css' );
+    wp_enqueue_style( 'SofiaScoutkårFooter', get_template_directory_uri() . '/css/footer.css' );
 
     wp_enqueue_script("jquery");
     wp_enqueue_script( 'SofiaScoutkårjs', get_template_directory_uri() . '/js/main.js' );
@@ -84,7 +87,7 @@ add_action( 'after_setup_theme', 'sofia_max_theme_setup' );
 function sofia_max_theme_setup() {
 	add_image_size( 'logo_size', 100, 100, false );
 	add_image_size( 'wallsize', 258 );
-	add_image_size( 'pageHeader', 1920, 250, true );
+	add_image_size( 'pageHeader', 1920, 300, true );
 
 
     /* Add theme support for:
@@ -118,10 +121,11 @@ function the_kårnamn()
 	$karnamn2 = utf8_encode(strtolower(utf8_decode(get_bloginfo( 'name' ))));
 	?>
 	<div class="karnamn logo">
-		<div>
+	
 	<a href="<?= get_home_url(); ?>" >
 
-		<?= $karnamn[0]?> <?php
+		<span class="before"><?= $karnamn[0]?> </span>
+		<?php
 		if(has_custom_logo()){
 
 			$custom_logo_id = get_theme_mod( 'custom_logo' );
@@ -135,10 +139,10 @@ function the_kårnamn()
 
 		}
 		if (strpos($karnamn2, 'scoutkår') !== false) {
-		    echo ' Scoutkår';
+		    echo '<span class="after" > Scoutkår</span>';
 		}
 
-	//echo $karnamn[1]; ?></div></a></div><?php
+	//echo $karnamn[1]; ?></a></div><?php
 }
 
 function the_avdelningarna($class=""){
@@ -215,5 +219,63 @@ function the_avdelningarna($class=""){
 </ul>
 <?php
 }
+
+function get_avg_luminance($filename, $num_samples=10) {
+		$type = exif_imagetype($filename);
+		//var_dump($type);
+		ini_set('memory_limit', '-1');
+		switch ($type) {
+			case IMAGETYPE_GIF:
+				# code...
+        		$img = imagecreatefromgif($filename);
+				break;
+			case IMAGETYPE_JPEG:
+
+        		$img = imagecreatefromjpeg($filename);
+				break;
+			case IMAGETYPE_PNG:
+        		$img = imagecreatefrompng($filename);
+
+				break;
+			default:
+				var_dump($type);
+				break;
+		}
+
+        $width = imagesx($img);
+        $height = imagesy($img);
+
+        $x_step = intval($width/$num_samples);
+        $y_step = intval($height/$num_samples);
+
+        $total_lum = 0;
+
+        $sample_no = 1;
+
+        for ($x=0; $x<$width; $x+=$x_step) {
+            for ($y=0; $y<$height; $y+=$y_step) {
+
+                $rgb = imagecolorat($img, $x, $y);
+                $r = ($rgb >> 16) & 0xFF;
+                $g = ($rgb >> 8) & 0xFF;
+                $b = $rgb & 0xFF;
+
+                // choose a simple luminance formula from here
+                // http://stackoverflow.com/questions/596216/formula-to-determine-brightness-of-rgb-color
+                $lum = ($r+$r+$b+$g+$g+$g)/6;
+
+                $total_lum += $lum;
+
+                // debugging code
+     //           echo "$sample_no - XY: $x,$y = $r, $g, $b = $lum<br />";
+                $sample_no++;
+            }
+        }
+
+        // work out the average
+        $avg_lum  = $total_lum/$sample_no;
+
+        return $avg_lum;
+    }
 
 ?>

@@ -40,7 +40,7 @@ get_header('home');
 		<div class="news">
 		<?php
 		$query->the_post(); 
-		echo "<h2><a href ='the_permalink();'>";
+		echo "<h2><a href ='".get_the_permalink()."'>";
 		the_title();
 		echo "</a></h2>";
 		the_content();

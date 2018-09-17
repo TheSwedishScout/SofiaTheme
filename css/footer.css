@@ -1,0 +1,73 @@
+ul.avdelningar-nav.footer-aria{
+	margin-top:16px; 
+}
+body > footer{
+	background-color: var(--dark);
+	box-sizing: border-box;
+	color: var(--light);
+	margin-top: 18px;
+	display: grid;
+	justify-items: center;
+	align-items: center;
+	grid-template-areas: "action" "social" "logga" "kontakt" "copy";
+	grid-gap:16px;
+	padding: 16px;
+}
+body > footer > *:first-child{
+	grid-area: kontakt;
+}
+body > footer > *:nth-child(2){
+	grid-area: action;
+}
+body > footer > *:nth-child(3){
+	grid-area: social;
+}
+body > footer > *:nth-child(4){
+	grid-area: logga;
+}
+body > footer > *:nth-child(5){
+	grid-area: copy;
+	text-align: right;
+}
+body > footer .karnamn{
+	font-size: 40px;
+	font-family: ScouternaRounded;
+	line-height: 30px;
+	color: var(--light);
+	text-transform: uppercase;
+	text-decoration: none;
+
+}
+body > footer .karnamn:hover{
+	text-decoration: underline;
+}
+body > footer .karnamn img{
+	height: 30px;
+}
+.social-aria{
+	
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+    box-sizing: border-box;
+    width: 100%;
+    align-items: center;
+}
+.social-aria img{
+	width: 100px;
+	filter: invert(1);
+}
+.social-aria img:hover{
+	filter: invert(0.5);	
+}
+
+@media screen and (min-width: 1362px) {
+	body > footer{
+		grid-template-columns: repeat(3, 1fr);
+		grid-template-rows: 258px 44px;
+		grid-template-areas: "kontakt action social" ". logga copy";
+	}
+	body > footer .social-aria{
+		padding-right: 30px;
+	}
+}

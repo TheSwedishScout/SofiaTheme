@@ -36,31 +36,18 @@
 			        $parent = get_post( $id );
 				
 			//var_dump($id);
-		  ?>
-		  <!-- <ul class="submenu">
-			<?php
-			wp_list_pages( array(
+			/*wp_list_pages( array(
 			    'title_li'    => '',
 			    'child_of'    => $parent->ID,
 			    
-			) );
+			) );*/
 			}
-
-			?>
-		</ul>
- -->
+		  ?>
+		  
 		</nav>
 
 		  <?php the_kårnamn(); ?>
 	</header>
 	<?php 
-		/*if ( is_front_page() && is_home() ) {
-		  echo ' Default homepage';
-		} elseif ( is_front_page() ) {
-		  echo ' static homepage';
-		} elseif ( is_home() ) {
-		  echo ' blog page';
-		} else {
-		  echo 'everything else';
-		}*/
+
 	?>

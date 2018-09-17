@@ -1,0 +1,119 @@
+/*--------------------------------------------------------MAIN-------------------------------------------------------*/
+/*--------------------------------------------------------MAIN-------------------------------------------------------*/
+/*--------------------------------------------------------MAIN-------------------------------------------------------*/
+/*--------------------------------------------------------MAIN-------------------------------------------------------*/
+/*--------------------------------------------------------MAIN-------------------------------------------------------*/
+main article{
+	/*display: grid;*/
+	grid-gap: 18px;
+	grid-template-columns:100%;
+
+	grid-template-rows: 50px auto auto 15px;
+
+	display: grid;
+}
+.blog main article{
+}
+main article:not(:only-of-type):not(:last-child){
+	margin-bottom: 18px;
+	border-bottom: 1px solid var(--dark);
+}
+main{
+	box-sizing: border-box;
+	padding: 8px;
+	width: 100%;
+}
+	/*
+
+*/
+
+.action-box{
+	background: var(--blue);
+    min-height: 258px;
+    /* padding: 0; */
+    margin: -276px 0;
+    position: absolute;
+    width: 100%;
+    left: 0;
+    box-sizing: border-box;
+    
+}
+.clear-action-box{
+	height: 258px;
+	margin: 18px 0;
+}
+.action-box > div{
+	max-width: 100%;
+	margin: 0 auto;
+	color: var(--light);
+	display: grid;
+    /*grid-template-columns:auto 258px; */
+    padding: 8px;
+}
+.action-box div h3{
+	color: var(--light);
+}
+.action-box img{
+	height: auto;
+	max-width: 258px;
+	width: 100%;
+	margin-top: 8px;
+	margin-bottom: 8px;
+}
+//Frontpage 
+body > main > div.frontpageNotes{
+	display: grid;
+}
+.frontpageNotes{
+	display: grid;
+	grid-gap:16px;
+	margin-top: 16px;
+}
+.frontpageNotes > *{
+	box-sizing: border-box;
+	padding: 8px;
+	background: rgba(220, 220, 220, 1);
+	box-shadow: 1px 1px 3px rgba(14,14,14,0.4);
+	border-radius: 2px;
+}
+
+.home main > img{
+	margin-top: 16px;
+	width: 100%;
+	height: auto;
+}
+
+
+
+@media screen and (min-width: 1362px) {
+	
+	.frontpageNotes{
+		grid-template-columns: 50% 50%;
+		grid-template-rows: 1fr 1fr;
+	}
+	main{
+		margin: 0 auto;
+		max-width: var(--max-width);
+	}
+	main article{
+		grid-template-columns:auto 258px;
+		grid-template-rows:auto 1fr auto;
+		grid-template-areas: "header image" "article image" "footer footer"
+	}
+
+	main article img{
+		grid-area: image;
+	}
+	main article .heading{
+		grid-area: header;
+	}
+	main article .exerpt{
+		grid-area: article;
+	}
+	main article footer{
+		grid-area: footer;
+	}
+	.action-box > div{
+		max-width: var(--max-width);
+	}
+}
