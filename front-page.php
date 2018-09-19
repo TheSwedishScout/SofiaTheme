@@ -18,14 +18,8 @@ get_header('home');
 		the_content();
 		}
 	}
-		 
-	?>
-	</div>
+
 	
-	<div class="frontpageNotes" >
-	
-	
-	<?php
 
 	$args = array(
 		'post_type' => 'front_page',
@@ -33,6 +27,14 @@ get_header('home');
 		'post__in'  => get_option( 'sticky_posts' ),
 	);
 	$query = new WP_Query( $args );
+
+	?>
+	</div>
+	
+	<div class="frontpageNotes nr-<?= count($query->posts) ?>" >
+	
+	
+	<?php
 
 	if ( $query->have_posts() ) {
 	while ( $query->have_posts() ) {

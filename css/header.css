@@ -24,7 +24,8 @@ body header nav ul li.menu-item-home a:before{
 	body header nav a{
 		font-family: TeeULight;
 		display: block;
-		padding: 18px 0;
+		padding: 1em 0;
+		font-size: 1em;
 		width: 100%;
 		text-decoration: none;
 		color: var(--dark);
@@ -50,7 +51,7 @@ body header nav ul li.menu-item-home a:before{
 	.sub-menu{
 		padding-left: 16px;
 		list-style: none;
-		transition: height .2s;
+		transition: height .2s ease;
 	}
 	.menu-item-has-children > .sub-menu{
 		height: 0;
@@ -63,8 +64,13 @@ body header nav ul li.menu-item-home a:before{
 
 header .karnamn{
 	position: absolute;
-	top: 36%;
+	bottom: auto;
     width: 100%;
+	top:50%;
+}
+.home header .karnamn{
+	top:auto;
+	bottom: 50%;
 }
 header .karnamn a{
 
@@ -110,7 +116,7 @@ body > header > .action-btn{
 	position: absolute;
 	left: 0;
 	right: 0;
-	bottom:40%;
+	bottom:30%;
 	text-align: center;
 }
 header button.caldera-forms-modal, footer button.caldera-forms-modal,
@@ -279,6 +285,9 @@ header button.caldera-forms-modal:active, .action-btn a:active, footer button.ca
 		animation: fixed-nav-appere .3s forwards;
 
 	}
+	.admin-bar #topMeny.fixed{
+		top: 2em;
+	}
 	body header nav.fixed a{
 		padding: 8px 0;
 	}
@@ -309,7 +318,11 @@ header button.caldera-forms-modal:active, .action-btn a:active, footer button.ca
 		padding: 0;
 		/* max-width: var(--max-width); */
 		left: 0;
-		bottom: -36px;
+		top: 3.28em;
+		
+	}
+	body header nav.fixed .menu-item-has-children> .sub-menu{
+		top: 36px;
 	}
 	body header nav .menu-item-has-children> .sub-menu a{
 		padding: 8px 0;
@@ -319,9 +332,13 @@ header button.caldera-forms-modal:active, .action-btn a:active, footer button.ca
 	body header nav .menu-item-has-children:hover > .sub-menu{
 		background: var(--light);
 		height: 36px;
+		/*border-bottom: 1px solid;*/
+    	box-shadow: 1px 4px 2px var(--dark);
 	}
 	body header nav .menu-item-has-children:hover > .sub-menu{
 		z-index: 100;
+		border-bottom: 1px solid;
+    	box-shadow: 1px 4px 2px #777;
 	}
 	
 	.submenu li{

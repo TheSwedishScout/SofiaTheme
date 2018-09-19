@@ -24,12 +24,12 @@ function sofia_max_cusom_settings(){
 
 	
 	//avdelningar
-	register_setting( 'Scout_settings_group_avdelningar', 'bäver' );
-	register_setting( 'Scout_settings_group_avdelningar', 'spårare' );
-	register_setting( 'Scout_settings_group_avdelningar', 'upptäckare' );
-	register_setting( 'Scout_settings_group_avdelningar', 'äventyrare' );
-	register_setting( 'Scout_settings_group_avdelningar', 'utmanare' );
-	register_setting( 'Scout_settings_group_avdelningar', 'rover' );
+	register_setting( 'Scout_settings_group_social', 'bäver' );
+	register_setting( 'Scout_settings_group_social', 'spårare' );
+	register_setting( 'Scout_settings_group_social', 'upptäckare' );
+	register_setting( 'Scout_settings_group_social', 'äventyrare' );
+	register_setting( 'Scout_settings_group_social', 'utmanare' );
+	register_setting( 'Scout_settings_group_social', 'rover' );
 	add_settings_section( 'sofia-max-Avdelningar', 'avdelningar', 'sofia_max_avdelnigar_sidor', 'Scout_max_avdelningar' );
 	add_settings_field( 'bäver-link', 'bäver', 'sofia_max_insert_link', 'Scout_max_avdelningar', 'sofia-max-Avdelningar', array( 'for' => 'bäver', 'type'=>"text" ));
 	add_settings_field( 'spårare-link', 'spårare', 'sofia_max_insert_social_media', 'Scout_max_avdelningar', 'sofia-max-Avdelningar', array( 'for' => 'spårare', 'type'=>"text" ));
@@ -47,7 +47,7 @@ function sofia_max_sociala_medier_options()
 	echo "Länkar till sociala medier som kåren använder";
 }
 function sofia_max_avdelnigar_sidor(){
-	echo "länkaar till de olika avdelningarna ni har";
+	echo "Länkar till de olika avdelningarna för snabb åtkomst till de sidorna";
 	return "true";
 }
 function sofia_max_insert_social_media($args){
@@ -72,8 +72,6 @@ function sofia_max_theme_create_page(){
 		<?php
 			settings_fields( 'Scout_settings_group_social' );
 			do_settings_sections( "Scout_max" );
-			submit_button();
-			settings_fields( 'Scout_settings_group_avdelningar' );
 			do_settings_sections( "Scout_max_avdelningar" );
 			submit_button();
 		 ?>
