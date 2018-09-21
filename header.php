@@ -8,6 +8,7 @@
  wp_head() ?>
 </head>
 <body <?php echo 'class="' . join( ' ', str_replace("custom-background", "", get_body_class())) . '"'; ?>>
+	<div id="scoutflik"><img src="<?= get_template_directory_uri() . '/images/Tab-vertical.png' ?>"></div>
 	<header class="main-header" style="<?php
 		if ( is_home() ) {
 			?>

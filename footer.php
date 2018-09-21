@@ -1,6 +1,12 @@
 <?php the_avdelningarna('footer-aria'); ?>
 <footer>
-	<div>Kontakt vänster</div>
+	<div>
+		<?php if ( is_active_sidebar( 'contact' ) ) : ?>
+		    <ul id="sidebar">
+		        <?php dynamic_sidebar( 'contact' ); ?>
+		    </ul>
+		<?php endif; ?>
+	</div>
 	<div>
 		<?php if ( is_active_sidebar( 'action' ) ) : ?>
 	    <div class="action-btn">
@@ -42,7 +48,7 @@
 
 	?></div>
 	<div><?php the_kårnamn() ?></div>
-	<div>Copy text höger</div>
+	<div>Tema skapat av Max Timje för Sofia scoutkår</div>
 </footer>
 
 <?php

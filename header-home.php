@@ -6,12 +6,12 @@
 	<?php wp_head() ?>
 </head>
 <body <?php echo 'class="' . join( ' ', str_replace("custom-background", "", get_body_class())) . '"'; ?>>
-
+	<div id="scoutflik"><img src="<?= get_template_directory_uri() . '/images/Tab-vertical.png' ?>"></div>
 	<?php
 	$img = get_header_image();
 	$luminance = get_avg_luminance($img);
 	//var_dump($luminance);
-	if ($luminance > 170) {
+	if ($luminance > 100) {
 		$imglum = "dark";
 	}else{
 		$imglum = "light";

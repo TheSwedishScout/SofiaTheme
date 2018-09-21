@@ -42,6 +42,7 @@ function sofia_max_additional_custom_styles() {
     wp_enqueue_style( 'SofiaScoutkårHeader', get_template_directory_uri() . '/css/header.css' );
     wp_enqueue_style( 'SofiaScoutkårBody', get_template_directory_uri() . '/css/body.css' );
     wp_enqueue_style( 'SofiaScoutkårFooter', get_template_directory_uri() . '/css/footer.css' );
+    wp_enqueue_style( 'SofiaScoutkårWidget', get_template_directory_uri() . '/css/widget.css' );
 
     wp_enqueue_script("jquery");
     wp_enqueue_script( 'SofiaScoutkårjs', get_template_directory_uri() . '/js/main.js' );
@@ -73,6 +74,15 @@ function sofia_max_widgets_init() {
         'description'   => __( 'Action knapp i under kår namn. Ska bara vara en knapp!', 'sofiascoutkar' ),
         'before_widget' => '',
         'after_widget'  => '',
+        'before_title'  => '<h2 class="widgettitle">',
+        'after_title'   => '</h2>',
+    ));
+    register_sidebar(array(
+    	'name' 			=> __('Kontakt foten', 'sofiascoutkar' ),
+        'id'            => 'contact',
+        'description'   => __( 'kontaktinformation i foten', 'sofiascoutkar' ),
+        'before_widget' => '<div class="widget">',
+        'after_widget'  => '</div>',
         'before_title'  => '<h2 class="widgettitle">',
         'after_title'   => '</h2>',
     ));
@@ -274,6 +284,8 @@ function get_avg_luminance($filename, $num_samples=10) {
 
         // work out the average
         $avg_lum  = $total_lum/$sample_no;
+
+        
 
         return $avg_lum;
     }

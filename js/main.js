@@ -44,7 +44,36 @@ jQuery(document).ready(function ($) {
 
 		
 	})*/
+	var hidden = [];
+	$(".menu-item-has-children").hover(function(e) {
+		var ancestor = $(".current-menu-ancestor .sub-menu")
+		var current = $(".current-menu-item .sub-menu")
+		e
 
+		if(window.outerWidth >= 1362){
+			for (var i = ancestor.length - 1; i >= 0; i--) {
+				if(!this.contains(ancestor[i])){
+					hidden.push(ancestor[i])
+					ancestor[i].style.height = 0;
+				}
+			}
+			for (var i = current.length - 1; i >= 0; i--) {
+				if(!this.contains(current[i]) ){
+					hidden.push(current[i])
+					current[i].style.height = 0;
+				}
+			}
+
+		}
+
+		/* Stuff to do when the mouse enters the element */
+	}, function() {
+		for (var i = hidden.length - 1; i >= 0; i--) {
+			hidden[i].style.height = "36px";
+			hidden.pop()
+		}
+		/* Stuff to do when the mouse leaves the element */
+	});
 
 
 	function centerTitle() {

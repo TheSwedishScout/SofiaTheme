@@ -29,7 +29,7 @@ main{
 
 .action-box{
 	background: var(--blue);
-    min-height: 258px;
+    height: 258px;
     /* padding: 0; */
     margin: -276px 0;
     position: absolute;
@@ -47,18 +47,23 @@ main{
 	margin: 0 auto;
 	color: var(--light);
 	display: grid;
-    /*grid-template-columns:auto 258px; */
+    grid-template-columns:1fr 242px; 
     padding: 8px;
+    grid-template-rows: 242px;
+}
+.action-box > div > div{
+
 }
 .action-box div h3{
 	color: var(--light);
 }
 .action-box img{
+	grid-column-start: 2;
+    grid-row-start: 1;
 	height: auto;
-	max-width: 258px;
+	max-height: 242px;
+	max-width: 242px;
 	width: 100%;
-	margin-top: 8px;
-	margin-bottom: 8px;
 }
 //Frontpage 
 body > main > div.frontpageNotes{
@@ -106,15 +111,27 @@ body > main > div.frontpageNotes{
 	main{
 		margin: 0 auto;
 		max-width: var(--max-width);
+		display: grid;
+		grid-template-columns:auto 258px;
+	}
+	.blog main{
+		grid-template-columns:auto;
 	}
 	main article{
-		grid-template-columns:auto 258px;
+		grid-template-columns:auto;
 		grid-template-rows:auto 1fr auto;
+		grid-template-areas: "header" "article" "footer"
+	}
+	.blog main article{
+		grid-template-columns:auto 258px;
 		grid-template-areas: "header image" "article image" "footer footer"
 	}
-
-	main article img{
+	.blog article img{
 		grid-area: image;
+	}
+		
+	.page main .info{
+		grid-area: info;
 	}
 	main article .heading{
 		grid-area: header;
