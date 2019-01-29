@@ -1,0 +1,10 @@
+/*
+css for parent pages
+*/
+
+	.page-template-parent-page main article{
+		grid-template-areas: "header" "article" "childs" "footer"
+	}
+	#child-pages{
+		grid-area: childs;
+	}	

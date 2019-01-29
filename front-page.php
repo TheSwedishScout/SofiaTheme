@@ -9,18 +9,10 @@ get_header('home');
 	senaste nyheten (post)
 	*/
 		?>
-	<div class="page_post"> 
-	<?php
-	if ( have_posts() ) {
-	while ( have_posts() ) {
-		the_post(); 
-		echo "<h1>".get_bloginfo( 'name' )."</h1>";
-		the_content();
-		}
-	}
-
 	
-
+	
+	<div class="frontpageNotes nr-<?= count($query->posts) ?>" >
+<?php	
 	$args = array(
 		'post_type' => 'front_page',
 		'posts_per_page' => 4,
@@ -29,24 +21,29 @@ get_header('home');
 	$query = new WP_Query( $args );
 
 	?>
-	</div>
-	
-	<div class="frontpageNotes nr-<?= count($query->posts) ?>" >
-	
 	
 	<?php
 
 	if ( $query->have_posts() ) {
 	while ( $query->have_posts() ) {
-		?>
-		<div class="news">
-		<?php
 		$query->the_post(); 
-		echo "<h2><a href ='".get_the_permalink()."'>";
-		the_title();
-		echo "</a></h2>";
-		the_content();
 		?>
+		<div class="news" id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+		<a href="<?= get_the_permalink()?>">
+
+		<?php
+		echo "<h2>";
+		the_title();
+		echo "</h2>";
+		the_content();
+		
+		?>
+		</a>
+		<?php
+		if(has_post_thumbnail()){
+			the_post_thumbnail($post->ID, 'postits');
+		} 
+		 ?>
 		</div>
 		<?php
 		}
@@ -61,6 +58,19 @@ get_header('home');
 
 ?>
 	</div> <!-- frontpagenotes-->
+	<div class="page_post" id="post-<?php the_ID(); ?>" <?php post_class(); ?>> 
+	<?php
+	if ( have_posts() ) {
+	while ( have_posts() ) {
+		the_post(); 
+		echo "<h1>".get_bloginfo( 'name' )."</h1>";
+		the_content();
+		}
+	}
+	?>
+	</div>
+
+	
 	<?php  
 	if ( have_posts() ) {
 		while ( have_posts() ) {

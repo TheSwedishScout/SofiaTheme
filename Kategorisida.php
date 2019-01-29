@@ -1,4 +1,7 @@
 <?php 
+/**
+ * Template Name: parent page
+*/
 get_header();
 ?>
 <main>
@@ -10,13 +13,13 @@ if ( have_posts() ) {
 		// Post Content here
 		
 		?>
-		<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+		<article>
 		<h1 class="heading"><?php the_title(); ?></h1>
 		<?php
 		if ( is_home() ) {
 		  //echo ' blog page';
 		  ?><div class="exerpt">
-			<?php the_excerpt();?>
+			<?= the_excerpt();?>
 			</div>
 			<?php
 
@@ -29,15 +32,37 @@ if ( have_posts() ) {
 		  }
 		} else {
 		  //normal page
-		  ?><div  class="exerpt">
-			<?php the_content();?>
+		  ?><div class="exerpt">
+			<?= the_content();?>
 			</div><?php
 		}
 		?>
-		
+		<?php
+		$args = array(
+		    'post_type'      => 'page',
+		    'posts_per_page' => -1,
+		    'post_parent'    => $post->ID,
+		    'order'          => 'ASC',
+		    'orderby'        => 'menu_order'
+		 );
+
+		?>
+			<ul id="child-pages">
+				<?php
+				$parent = new WP_Query( $args );
+				if ( $parent->have_posts() ) : ?>
+				    <?php while ( $parent->have_posts() ) : $parent->the_post(); ?>
+					<li>
+				    	<h1><a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a></h1>
+				    	<p><?php the_excerpt(); ?></p>
+					</li>
+				    <?php endwhile; ?>
+				<?php endif; wp_reset_postdata(); ?>
+			</ul>
 		<footer>
 			Senast uppdaterad: <?php  the_modified_time("j F Y") ?>
 		</footer>
+		
 		</article>
 		<?php
 	} // end while

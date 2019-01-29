@@ -10,13 +10,13 @@ if ( have_posts() ) {
 		// Post Content here
 		
 		?>
-		<article>
+		<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 		<h1 class="heading"><a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h1>
 		<?php
 		if ( is_home() ) {
 		  //echo ' blog page';
 		  ?><div class="exerpt">
-			<?= the_excerpt();?>
+			<?php the_excerpt();?>
 			</div>
 			<?php
 
@@ -30,7 +30,7 @@ if ( have_posts() ) {
 		} else {
 		  //normal page
 		  ?><div class="exerpt">
-			<?= the_content();?>
+			<?php the_content();?>
 			</div><?php
 		}
 		?>

@@ -8,18 +8,30 @@
  wp_head() ?>
 </head>
 <body <?php echo 'class="' . join( ' ', str_replace("custom-background", "", get_body_class())) . '"'; ?>>
-	<div id="scoutflik"><img src="<?= get_template_directory_uri() . '/images/Tab-vertical.png' ?>"></div>
-	<header class="main-header" style="<?php
-		if ( is_home() ) {
-			?>
-			background-image: url(<?php header_image(); ?>);
-			<?php
+	<div id="scoutflik"><img src="<?php echo get_template_directory_uri() . '/images/Tab-vertical.png' ?>"></div>
+	<?php
+
+	if ( is_home() ) {
+			 $get_header_image = get_header_image();
+			
 		}else{
-			?>
-			background-image: url(<?= the_post_thumbnail_url('pageHeader'); ?>);
-			<?php
+			 $get_header_image = get_the_post_thumbnail_url($post->id, 'pageHeader'); 
+			
 		}
-		?>">
+	
+
+	if($get_header_image){
+		$luminance = get_avg_luminance($get_header_image);
+		//var_dump($luminance);
+		if ($luminance > 50) {
+			$imglum = "dark";
+		}else{
+			$imglum = "light";
+
+		}
+	}
+	?>
+	<header class="main-header <?php echo $imglum; ?> <?php echo $luminance; ?>" style="background-image: url(<?php echo $get_header_image; ?>);">
 		<div id="hamburger">
 			<span></span>
 			<span></span>

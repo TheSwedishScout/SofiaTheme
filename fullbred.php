@@ -1,4 +1,7 @@
 <?php 
+/**
+ * Template Name: Fullbrädd
+*/
 get_header();
 ?>
 <main>
@@ -16,7 +19,7 @@ if ( have_posts() ) {
 		if ( is_home() ) {
 		  //echo ' blog page';
 		  ?><div class="exerpt">
-			<?php the_excerpt();?>
+			<?= the_excerpt();?>
 			</div>
 			<?php
 
@@ -29,8 +32,8 @@ if ( have_posts() ) {
 		  }
 		} else {
 		  //normal page
-		  ?><div  class="exerpt">
-			<?php the_content();?>
+		  ?><div class="exerpt">
+			<?= the_content();?>
 			</div><?php
 		}
 		?>
@@ -43,13 +46,7 @@ if ( have_posts() ) {
 	} // end while
 } // end if
 ?>
-<div id="pageSidebar">
-	<?php if ( is_active_sidebar( 'sidebar-1' ) ) : ?>
-	    <ul id="sidebar">
-	        <?php dynamic_sidebar( 'sidebar-1' ); ?>
-	    </ul>
-	<?php endif; ?>
-</div>
+
 </main>
 <?php
 get_footer();

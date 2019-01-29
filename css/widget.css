@@ -1,3 +1,9 @@
 #pageSidebar > ul{
 	list-style: none;
 }
+.widget iframe{
+	max-width: 100%;
+}
+.widget > ul{
+	list-style: none;
+}

@@ -3,6 +3,15 @@
 /*--------------------------------------------------------MAIN-------------------------------------------------------*/
 /*--------------------------------------------------------MAIN-------------------------------------------------------*/
 /*--------------------------------------------------------MAIN-------------------------------------------------------*/
+.sticky h1:after{
+	background-image: url(../images/iconfinder_pin.png);
+    content: "";
+    width: 33px;
+    height: 33px;
+    display: inline-block;
+    background-repeat: no-repeat;
+    margin-left: 17px;
+}
 main article{
 	/*display: grid;*/
 	grid-gap: 18px;
@@ -22,6 +31,7 @@ main{
 	box-sizing: border-box;
 	padding: 8px;
 	width: 100%;
+	max-width: 100vw;
 }
 	/*
 
@@ -65,7 +75,7 @@ main{
 	max-width: 242px;
 	width: 100%;
 }
-//Frontpage 
+/*Frontpage */
 body > main > div.frontpageNotes{
 	display: grid;
 }
@@ -73,13 +83,42 @@ body > main > div.frontpageNotes{
 	display: grid;
 	grid-gap:16px;
 	margin-top: 16px;
+	grid-template-columns: 100%;
+	grid-auto-rows: minmax(200px, auto);
 }
-.frontpageNotes > *{
+.frontpageNotes > div.news{
 	box-sizing: border-box;
-	padding: 8px;
 	background: rgba(220, 220, 220, 1);
 	box-shadow: 1px 1px 3px rgba(14,14,14,0.4);
 	border-radius: 2px;
+}
+.frontpageNotes > div.news > a{
+	padding: 8px;
+	display: block;
+	height: 100%;
+	width: 100%;
+	text-decoration: none;
+}
+.frontpageNotes > div.news a p{
+	color: var(--dark)
+}
+.frontpageNotes > div.news a h2{
+	text-decoration: underline;
+}
+.frontpageNotes > div.news a:hover h2{
+	color: var(--blue);
+}
+.frontpageNotes > div.news img{
+	max-width: 100%;
+	height: auto;
+	
+	
+	
+	
+}
+.frontpageNotes > div.news:hover img{
+	
+
 }
 
 .home main > img{
@@ -91,6 +130,7 @@ body > main > div.frontpageNotes{
 
 
 @media screen and (min-width: 1362px) {
+	
 	
 	.frontpageNotes{
 		grid-template-columns: 1fr 1fr;
@@ -113,6 +153,10 @@ body > main > div.frontpageNotes{
 		max-width: var(--max-width);
 		display: grid;
 		grid-template-columns:auto 258px;
+		grid-gap: 10px;
+	}
+	.home main{
+		grid-template-columns:auto;
 	}
 	.blog main{
 		grid-template-columns:auto;
@@ -126,10 +170,10 @@ body > main > div.frontpageNotes{
 		grid-template-columns:auto 258px;
 		grid-template-areas: "header image" "article image" "footer footer"
 	}
+
 	.blog article img{
 		grid-area: image;
 	}
-		
 	.page main .info{
 		grid-area: info;
 	}
