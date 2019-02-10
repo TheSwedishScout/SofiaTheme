@@ -30,26 +30,26 @@ if ( have_posts() ) {
 		} else {
 		  //normal page
 		  ?><div  class="exerpt">
-			<?php the_content();?>
+			<?php the_content();
+			comments_template();
+			?>
 			</div><?php
 		}
 		?>
 		
 		<footer>
+		<?php
+		wp_link_pages();
+		?>
 			Senast uppdaterad: <?php  the_modified_time("j F Y") ?>
 		</footer>
 		</article>
 		<?php
 	} // end while
 } // end if
+get_template_part( 'sidebar', 'page' );
 ?>
-<div id="pageSidebar">
-	<?php if ( is_active_sidebar( 'sidebar-1' ) ) : ?>
-	    <ul id="sidebar">
-	        <?php dynamic_sidebar( 'sidebar-1' ); ?>
-	    </ul>
-	<?php endif; ?>
-</div>
+
 </main>
 <?php
 get_footer();

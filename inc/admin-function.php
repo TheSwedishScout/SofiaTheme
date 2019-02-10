@@ -53,13 +53,13 @@ function sofia_max_avdelnigar_sidor(){
 function sofia_max_insert_social_media($args){
 	$info = esc_attr( get_option( $args['for'] ) );
 	?>
-	<input type="text" name="<?= $args['for'] ?>" placeholder="<?= $args['for'] ?> link" value="<?= $info; ?>">
+	<input type="text" name="<?php echo $args['for'] ?>" placeholder="<?php echo $args['for'] ?> link" value="<?php echo $info; ?>">
 	<?php
 }
 function sofia_max_insert_link($args){
 	$info = esc_attr( get_option( $args['for'] ) );
 	?>
-	<input type="text" name="<?= $args['for'] ?>" placeholder="<?= $args['for'] ?> link" value="<?= $info; ?>">
+	<input type="text" name="<?php echo $args['for'] ?>" placeholder="<?php echo $args['for'] ?> link" value="<?php echo $info; ?>">
 	<?php
 }
 

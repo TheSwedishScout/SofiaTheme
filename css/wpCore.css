@@ -41,7 +41,7 @@ a img.aligncenter {
 }
 
 .wp-caption {
-    background: #fff;
+    background: rgb(255, 255, 255);
     border: 1px solid #f0f0f0;
     max-width: 96%; /* Image does not overflow the content area */
     padding: 5px 3px 10px;
@@ -92,11 +92,11 @@ a img.aligncenter {
 }
 
 .screen-reader-text:focus {
-    background-color: #eee;
+    background-color: #eeeeee;
     clip: auto !important;
     -webkit-clip-path: none;
             clip-path: none;
-    color: #444;
+    color: #444444;
     display: block;
     font-size: 1em;
     height: auto;

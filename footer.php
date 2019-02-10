@@ -17,31 +17,31 @@
 	<div class="social-aria"><?php
 	if (!empty(get_option( 'facebook' ))){
 		?>
-		<a href="<?=esc_attr( get_option( 'facebook' ) )?>"><img src="<?= get_template_directory_uri()."/images/social/facebook.png"; ?>"></a>
+		<a href="<?php echo esc_attr( get_option( 'facebook' ) )?>"><img src="<?php echo  get_template_directory_uri()."/images/social/facebook.png"; ?>"></a>
 		<?php
 		
 	}
 	if (!empty(get_option( 'instagram' ))){
 		?>
-		<a href="<?=esc_attr( get_option( 'instagram' ) )?>"> <img src="<?= get_template_directory_uri()."/images/social/instagram.png"; ?>"></a> 
+		<a href="<?php echo esc_attr( get_option( 'instagram' ) )?>"> <img src="<?php echo  get_template_directory_uri()."/images/social/instagram.png"; ?>"></a> 
 		<?php
 		
 	}
 	if (!empty(get_option( 'twitter' ))){
 		?>
-		<a href="<?=esc_attr( get_option( 'twitter' ) )?>"> <img src="<?= get_template_directory_uri()."/images/social/twitter.png"; ?>"></a> 
+		<a href="<?php echo esc_attr( get_option( 'twitter' ) )?>"> <img src="<?php echo  get_template_directory_uri()."/images/social/twitter.png"; ?>"></a> 
 		<?php
 		
 	}
 	if (!empty(get_option( 'googleplus' ))){
 		?>
-		<a href="<?=esc_attr( get_option( 'googleplus' ) )?>"> <img src="<?= get_template_directory_uri()."/images/social/google plus.png"; ?>"></a> 
+		<a href="<?php echo esc_attr( get_option( 'googleplus' ) )?>"> <img src="<?php echo  get_template_directory_uri()."/images/social/google plus.png"; ?>"></a> 
 		<?php
 		
 	}
 	if (!empty(get_option( 'youtube' ))){
 		?>
-		<a href="<?=esc_attr( get_option( 'youtube' ) )?>"> <img src="<?= get_template_directory_uri()."/images/social/youtube.png"; ?>"></a> 
+		<a href="<?php echo esc_attr( get_option( 'youtube' ) )?>"> <img src="<?php echo  get_template_directory_uri()."/images/social/youtube.png"; ?>"></a> 
 		<?php
 		
 	}

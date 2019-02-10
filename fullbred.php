@@ -19,7 +19,7 @@ if ( have_posts() ) {
 		if ( is_home() ) {
 		  //echo ' blog page';
 		  ?><div class="exerpt">
-			<?= the_excerpt();?>
+			<?php the_excerpt();?>
 			</div>
 			<?php
 
@@ -33,12 +33,13 @@ if ( have_posts() ) {
 		} else {
 		  //normal page
 		  ?><div class="exerpt">
-			<?= the_content();?>
+			<?php the_content();?>
 			</div><?php
 		}
 		?>
 		
 		<footer>
+		<?php wp_link_pages(); ?>
 			Senast uppdaterad: <?php  the_modified_time("j F Y") ?>
 		</footer>
 		</article>

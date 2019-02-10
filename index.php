@@ -30,26 +30,54 @@ if ( have_posts() ) {
 		} else {
 		  //normal page
 		  ?><div class="exerpt">
-			<?php the_content();?>
+			<?php the_content();
+			if(is_singular()){
+				comments_template();
+			}
+			?>
 			</div><?php
 		}
+		
 		?>
 		
 		<footer>
+		<?php
+			/* $defaults = array(
+				'before'           => '<p>' . __( 'Pages:', 'twentyfourteen' ),
+				'after'            => '</p>',
+				'link_before'      => '',
+				'link_after'       => '',
+				'next_or_number'   => 'number',
+				'separator'        => ' ',
+				'nextpagelink'     => __( 'Next page', 'twentyfourteen'),
+				'previouspagelink' => __( 'Previous page', 'twentyfourteen' ),
+				'pagelink'         => '%',
+				'echo'             => 1
+			); */
+		
+				wp_link_pages();
+
+		?>
+		hej
+			<?php
+				
+				
+				if ( get_next_posts_link() ){
+					next_posts_link( 'Äldre inlägg', 0 );
+				}
+				if ( get_previous_posts_link() ) {
+					previous_posts_link( 'Nyare inlägg', 0 );
+				}
+				
+			?>
 			<?php the_author_link(); the_date( '', ' ', '', true ); ?>
 		</footer>
 		</article>
 		<?php
 	} // end while
 } // end if
+	get_template_part( 'sidebar', 'index' );
 ?>
-	<div>
-		<?php if ( is_active_sidebar( 'sidebar-1' ) ) : ?>
-		    <ul id="sidebar">
-		        <?php dynamic_sidebar( 'sidebar-1' ); ?>
-		    </ul>
-		<?php endif; ?>
-	</div>
 </main>
 <?php
 get_footer();

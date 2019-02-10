@@ -11,12 +11,12 @@ get_header('home');
 		?>
 	
 	
-	<div class="frontpageNotes nr-<?= count($query->posts) ?>" >
+	<div class="frontpageNotes nr-<?php echo count($query->posts); ?>" >
 <?php	
 	$args = array(
 		'post_type' => 'front_page',
 		'posts_per_page' => 4,
-		'post__in'  => get_option( 'sticky_posts' ),
+		'post_in'  => get_option( 'sticky_posts' ),
 	);
 	$query = new WP_Query( $args );
 
@@ -29,7 +29,7 @@ get_header('home');
 		$query->the_post(); 
 		?>
 		<div class="news" id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-		<a href="<?= get_the_permalink()?>">
+		<a href="<?php the_permalink()?>">
 
 		<?php
 		echo "<h2>";

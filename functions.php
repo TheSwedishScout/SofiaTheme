@@ -44,13 +44,16 @@ function sofia_max_additional_custom_styles() {
     wp_enqueue_style( 'SofiaScoutkårBody', get_template_directory_uri() . '/css/body.css' );
     wp_enqueue_style( 'SofiaScoutkårFooter', get_template_directory_uri() . '/css/footer.css' );
     wp_enqueue_style( 'SofiaScoutkårWidget', get_template_directory_uri() . '/css/widget.css' );
+	wp_enqueue_style( 'SofiaScoutkårInput', get_template_directory_uri() . '/css/input.css' );
     if(is_page_template('parent-page.php')){
-    	wp_enqueue_style( 'SofiaScoutkårParentPage', get_template_directory_uri() . '/css/parent.css' );
+		wp_enqueue_style( 'SofiaScoutkårParentPage', get_template_directory_uri() . '/css/parent.css' );
     }
-
-
+	
+	
     wp_enqueue_script("jquery");
     wp_enqueue_script( 'SofiaScoutkårjs', get_template_directory_uri() . '/js/main.js' );
+    wp_enqueue_script( 'commentjs', get_template_directory_uri() . '/js/comments.js' );
+	if ( is_singular() ) wp_enqueue_script( "comment-reply" );
 
 
 }

@@ -19,7 +19,7 @@ if ( have_posts() ) {
 		if ( is_home() ) {
 		  //echo ' blog page';
 		  ?><div class="exerpt">
-			<?= the_excerpt();?>
+			<?php the_excerpt();?>
 			</div>
 			<?php
 
@@ -33,7 +33,7 @@ if ( have_posts() ) {
 		} else {
 		  //normal page
 		  ?><div class="exerpt">
-			<?= the_content();?>
+			<?php the_content();?>
 			</div><?php
 		}
 		?>
@@ -67,14 +67,8 @@ if ( have_posts() ) {
 		<?php
 	} // end while
 } // end if
+get_template_part( 'sidebar', 'page' );
 ?>
-<div id="pageSidebar">
-	<?php if ( is_active_sidebar( 'sidebar-1' ) ) : ?>
-	    <ul id="sidebar">
-	        <?php dynamic_sidebar( 'sidebar-1' ); ?>
-	    </ul>
-	<?php endif; ?>
-</div>
 </main>
 <?php
 get_footer();

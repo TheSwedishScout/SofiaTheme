@@ -7,3 +7,13 @@
 .widget > ul{
 	list-style: none;
 }
+.calendar_wrap table{
+	width: 100%;
+	text-align: center;
+}
+.calendar_wrap table tfoot{
+	text-align: left;
+}
+.calendar_wrap table caption{
+	font-weight: 600;
+}
