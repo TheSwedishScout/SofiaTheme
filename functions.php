@@ -65,7 +65,12 @@ add_action( 'wp_enqueue_scripts', 'sofia_max_additional_custom_styles' );
 *
 * Add a menu location
 */
-register_nav_menu('main', 'The Main menu' );
+add_action( 'after_setup_theme', 'sofia_max_register_primary_menu' );
+ 
+function sofia_max_register_primary_menu() {
+    //register_nav_menu( 'primary', __( 'Primary Menu', 'theme-text-domain' ) );
+	register_nav_menu('main', 'The Main menu' );
+}
 /** - - - - - - - - - - - - - - - - - - - - - - - - - - - - -**/
 function sofia_max_widgets_init() {
     register_sidebar( array(

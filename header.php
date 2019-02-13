@@ -38,7 +38,7 @@
 			<span></span>
 		</div>	
 		<nav id="topMeny">
-		  <?php wp_nav_menu(array('menu' => 'main' , 'container_id'=> 'main-menu' )); 
+		  <?php wp_nav_menu(array('container_id'=> 'main-menu', 'theme_location'=>"main" )); 
 			$post = get_post();
 			if( is_page() ) { 
 			        /* Get an array of Ancestors and Parents if they exist */

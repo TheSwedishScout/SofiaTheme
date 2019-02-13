@@ -1,6 +1,6 @@
 <?php 
 /**
- * Template Name: parent page
+ * NOT_A_Template Name _:_ parent page
 */
 get_header();
 ?>

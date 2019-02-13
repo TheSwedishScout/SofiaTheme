@@ -37,7 +37,9 @@
 			<span></span>
 		</div>
 	<nav id="topMeny">
-	  <?php wp_nav_menu('main'); ?>
+	<?php 
+		wp_nav_menu(array( 'theme_location'=>"main" ));
+	?>
 	</nav>
 </header>
 <?php
