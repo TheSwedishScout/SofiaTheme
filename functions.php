@@ -45,6 +45,7 @@ function sofia_max_additional_custom_styles() {
     wp_enqueue_style( 'SofiaScoutkårFooter', get_template_directory_uri() . '/css/footer.css' );
     wp_enqueue_style( 'SofiaScoutkårWidget', get_template_directory_uri() . '/css/widget.css' );
 	wp_enqueue_style( 'SofiaScoutkårInput', get_template_directory_uri() . '/css/input.css' );
+	wp_enqueue_style( 'SofiaScoutkårcomment', get_template_directory_uri() . '/css/comment.css' );
     if(is_page_template('parent-page.php')){
 		wp_enqueue_style( 'SofiaScoutkårParentPage', get_template_directory_uri() . '/css/parent.css' );
     }
@@ -300,7 +301,4 @@ function get_avg_luminance($filename, $num_samples=10) {
 
         return $avg_lum;
     }
-
-
-
-?>
+	?>

@@ -1,0 +1,27 @@
+.comment-child{
+    margin-left: 10px;
+}
+.bypostauthor .comment-body {
+    border-left: 4px solid var(--blue);
+    padding-left: 5px;
+}
+ul.comments{
+    list-style: none;
+}
+.comment{
+    margin:10px 0px ;
+    font-size: 1em;
+}
+.even > .comment-body{
+    background: var(--bluetrans);
+}
+.fn{
+    font-size: 1.3em;
+}
+.comment-meta{
+    font-size: .8em;
+}
+.reply a{
+    margin: 4px;
+    padding: 6px;
+}

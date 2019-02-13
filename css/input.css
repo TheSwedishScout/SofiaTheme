@@ -2,7 +2,7 @@ input, textarea{
     padding: 5px;
     font-size: 1.2em;
 }
-input[type="submit"], input[type="button"]{
+input[type="submit"], input[type="button"], .reply a{
     background: var(--blue);
     color: var(--light);
     border: 0;
@@ -11,8 +11,9 @@ input[type="submit"], input[type="button"]{
     cursor: pointer;
     border: 1px solid var(--blue);
     outline: 0;
+    display: inline-block;
 }
-input[type="submit"]:hover, input[type="button"]:hover{
+input[type="submit"]:hover, input[type="button"]:hover, .reply:hover a{
     background: var(--light);
     color: var(--blue);
     /*border: 1px solid var(--dark);*/
