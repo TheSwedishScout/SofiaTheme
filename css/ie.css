@@ -1,0 +1,21 @@
+#IE-ALLERT{
+    display: block;
+    position: fixed;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    z-index: 100000000000000000000;
+    background: rgb(4,58,99);
+}
+.ie-allert-content{
+    position: absolute;
+    padding: 10px;
+    background: #fff;
+    left: 35%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+.ie-allert-content ul{
+    margin-left: 20px; 
+}

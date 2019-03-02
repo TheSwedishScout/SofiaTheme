@@ -25,7 +25,7 @@ if ( have_posts() ) {
 		  	//echo "string";
 		  } 
 		  else{
-		  	echo("<div>image</div>");
+		  	//echo("<div>image</div>");
 		  }
 		} else {
 		  //normal page
@@ -56,26 +56,34 @@ if ( have_posts() ) {
 			); */
 		
 				wp_link_pages();
-
+				//var_dump(get_the_tags($post->id));
+				$post_categories = get_the_category($post->id);
+				//var_dump($post_categories );
+					
+				foreach($post_categories as $cat){
+					//Loop threw all the categorys
+					// Get the URL of this category
+					$category_link = get_category_link( $cat->cat_ID );
+					?>
+					<a class="category" href="<?php echo esc_url( $category_link ); ?>" title="<?php echo $cat->name;?>"><?php echo $cat->name;?></a>
+					<?php
+				}
 		?>
-		hej
-			<?php
-				
-				
-				if ( get_next_posts_link() ){
-					next_posts_link( 'Äldre inlägg', 0 );
-				}
-				if ( get_previous_posts_link() ) {
-					previous_posts_link( 'Nyare inlägg', 0 );
-				}
-				
-			?>
 			<?php the_author_link(); the_date( '', ' ', '', true ); ?>
 		</footer>
 		</article>
 		<?php
 	} // end while
 } // end if
+	
+	if ( get_next_posts_link() ){
+		next_posts_link( 'Äldre inlägg', 10 );
+	}
+	if ( get_previous_posts_link() ) {
+		previous_posts_link( 'Nyare inlägg', 10 );
+	}
+				
+			
 	get_template_part( 'sidebar', 'index' );
 ?>
 </main>

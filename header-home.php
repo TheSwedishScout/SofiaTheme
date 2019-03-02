@@ -41,7 +41,48 @@
 		wp_nav_menu(array( 'theme_location'=>"main" ));
 	?>
 	</nav>
+	<?php
+	$ua = htmlentities($_SERVER['HTTP_USER_AGENT'], ENT_QUOTES, 'UTF-8');
+	if (preg_match('~MSIE|Internet Explorer~i', $ua) || (strpos($ua, 'Trident/7.0') !== false && strpos($ua, 'rv:11.0') !== false)) {
+		// do stuff for IE
+		?>
+		<div id="IE-ALLERT">
+			<div class="ie-allert-content">
+				<h2><?php echo ucwords(get_bloginfo('name'))?></h2>
+				<div class="info">
+					<p>Denna sidan stödjer inte <strong>Internet Explorer</strong>.</p>
+					<p>denna sidan stöjer i stortsätt alla mobilers webbläsare så testa med den</p>
+					<h3>Webbläsare som stöds</h3>
+					<ul>
+						<li>
+							<a href="https://www.google.com/chrome/">Chrome</a>
+						</li>
+						<li>
+							<a href="https://www.mozilla.org/en-US/firefox/new/">Firefox</a>
+						</li>
+						<li>
+							<a href="https://www.microsoft.com/en-us/windows/microsoft-edge">Edge</a>
+						</li>
+						<li>
+							<a href="https://support.apple.com/downloads/safari">Safari</a>
+						</li>
+						<li>
+							<a href="https://www.opera.com/download">Opera</a>
+						</li>
+					</ul>
+					<p>
+						Varmt välkommen tillbaka med en modärnare och säkrare webbläsare!
+					</p>
+				</div>
+			</div>
+		</div>
+	<?php
+	die();
+	}
+	?>
 </header>
 <?php
 the_avdelningarna();
 ?>
+
+

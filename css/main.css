@@ -89,13 +89,19 @@ body{
 p, th, td, li, dd, dt, ul, ol, blockquote, q, acronym, abbr, a, input, select, textarea {
 	font-family: inherit;
 }
+p+p{
+	margin-top: 1em;
+}
 a{
 	color: var(--blue);
 }
 a:hover{
 	color: var(--dark);
 }
-
+img{
+	max-width: 100%;
+    height: auto;
+}
 .widget{
 	padding: 20px 0;
 }
@@ -119,3 +125,26 @@ a:hover{
     from {-webkit-transform: translateY(-37px);transform: translateY(-37px);}
     to {-webkit-transform: translateY(0px);transform: translateY(0px);}
 }
+
+	#IE-ALLERT{
+		display: block;
+		position: fixed;
+		top: 0px;
+		bottom: 0px;
+		left: 0px;
+		right: 0px;
+		z-index: 100000000000000000000;
+		background: rgb(4,58,99);
+	}
+	.ie-allert-content{
+		position: absolute;
+		padding: 10px;
+		background: #fff;
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%, -50%);
+	}
+	.ie-allert-content ul{
+		margin-left: 20px; 
+	}
+ }

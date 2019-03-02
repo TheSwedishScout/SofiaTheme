@@ -26,7 +26,7 @@ function sofia_max_infobar( $atts , $content = null ) {
 					<h3>{$atts['rubrik']}</h3>
 					<p>{$content}</p>
 					</div>
-					<img src='{$atts['img']}'>
+					<img alt='{$atts['rubrik']}' src='{$atts['img']}'>
 				</div>
 			</div>";
 	return $tor;
@@ -48,7 +48,9 @@ function sofia_max_additional_custom_styles() {
 	wp_enqueue_style( 'SofiaScoutkårcomment', get_template_directory_uri() . '/css/comment.css' );
     if(is_page_template('parent-page.php')){
 		wp_enqueue_style( 'SofiaScoutkårParentPage', get_template_directory_uri() . '/css/parent.css' );
-    }
+	}
+	wp_enqueue_style( 'my-theme-ie', get_template_directory_uri() . "/css/ie.css" );
+	wp_style_add_data( 'my-theme-ie', 'conditional', 'IE' );
 	
 	
     wp_enqueue_script("jquery");
@@ -158,10 +160,10 @@ function the_kårnamn()
 			$custom_logo_id = get_theme_mod( 'custom_logo' );
 			$logo_image = wp_get_attachment_image_src( $custom_logo_id , 'logo_size' );
 
-			?><img src="<?php echo $logo_image[0] ?>"><?php
+			?><img alt="logo märke" src="<?php echo $logo_image[0] ?>"><?php
 		}else{
 			/*echo "Scoutemblem";*/
-			?><img src="<?php echo get_template_directory_uri() . '/images/Scoutsymbolen_rgb.png' ?>"><?php
+			?><img alt="Scouterna svenska scouternas symbol" src="<?php echo get_template_directory_uri() . '/images/Scoutsymbolen_rgb.png' ?>"><?php
 
 
 		}
@@ -180,8 +182,8 @@ function the_avdelningarna($class=""){
 			?>
 			<li>
 				<a href="<?php echo get_option( 'bäver' );?>">
-					<img src="<?php echo get_template_directory_uri()."/images/avdelningar/bäver.png"; ?>">
-					<p>Spårarna</p>
+					<img alt="Bäver avdelningens märke" src="<?php echo get_template_directory_uri()."/images/avdelningar/bäver.png"; ?>">
+					<p>Bäver</p>
 				</a>
 			</li>
 			<?php
@@ -191,7 +193,7 @@ function the_avdelningarna($class=""){
 			?>
 			<li>
 				<a href="<?php echo get_option( 'spårare' );?>">
-					<img src="<?php echo get_template_directory_uri()."/images/avdelningar/spårare.png"; ?>">
+					<img alt="Spårar avdelningens märke" src="<?php echo get_template_directory_uri()."/images/avdelningar/spårare.png"; ?>">
 					<p>Spårarna</p>
 				</a>
 			</li>
@@ -202,7 +204,7 @@ function the_avdelningarna($class=""){
 			?>
 			<li>
 				<a href="<?php echo get_option( 'upptäckare' );?>">
-					<img src="<?php echo get_template_directory_uri()."/images/avdelningar/upptäckare.png"; ?>">
+					<img alt="Upptäckar avdelningens märke" src="<?php echo get_template_directory_uri()."/images/avdelningar/upptäckare.png"; ?>">
 					<p>Upptäckarna</p>
 				</a>
 			</li>
@@ -213,7 +215,7 @@ function the_avdelningarna($class=""){
 			?>
 			<li>
 				<a href="<?php echo get_option( 'äventyrare' );?>">
-					<img src="<?php echo get_template_directory_uri()."/images/avdelningar/äventyrare.png"; ?>">
+					<img alt="Äventyrar avdelningens märke" src="<?php echo get_template_directory_uri()."/images/avdelningar/äventyrare.png"; ?>">
 					<p>Äventyrarna</p>
 				</a>
 			</li>
@@ -224,7 +226,7 @@ function the_avdelningarna($class=""){
 			?>
 			<li>
 				<a href="<?php echo get_option( 'utmanare' );?>">
-			<img src="<?php echo get_template_directory_uri()."/images/avdelningar/utmanare.png"; ?>">
+			<img alt="Utmanarnas avdelningens märke" src="<?php echo get_template_directory_uri()."/images/avdelningar/utmanare.png"; ?>">
 					<p>Utmanarna</p>
 				</a>
 			</li>
@@ -235,7 +237,7 @@ function the_avdelningarna($class=""){
 			?>
 			<li>
 				<a href="<?php echo get_option( 'rover' );?>">
-			<img src="<?php echo get_template_directory_uri()."/images/avdelningar/rover.png"; ?>">
+			<img alt="Rover avdelningens märke" src="<?php echo get_template_directory_uri()."/images/avdelningar/rover.png"; ?>">
 					<p>Rover</p>
 				</a>
 			</li>

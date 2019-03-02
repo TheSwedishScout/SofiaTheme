@@ -14,8 +14,14 @@ get_header('home');
 	<div class="frontpageNotes nr-<?php echo count($query->posts); ?>" >
 <?php	
 	$args = array(
+		'post_type' => 'blogg',
+		'posts_per_page' => get_option('posts'),
+		'post_in'  => get_option( 'sticky_posts' ),
+	);
+	$news = new WP_Query( $args );
+	$args = array(
 		'post_type' => 'front_page',
-		'posts_per_page' => 4,
+		'posts_per_page' => get_option('posts'),
 		'post_in'  => get_option( 'sticky_posts' ),
 	);
 	$query = new WP_Query( $args );
@@ -25,27 +31,27 @@ get_header('home');
 	<?php
 
 	if ( $query->have_posts() ) {
-	while ( $query->have_posts() ) {
-		$query->the_post(); 
-		?>
-		<div class="news" id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-		<a href="<?php the_permalink()?>">
+		while ( $query->have_posts() ) {
+			$query->the_post(); 
+			?>
+			<div class="news" id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+				<a href="<?php the_permalink()?>">
 
-		<?php
-		echo "<h2>";
-		the_title();
-		echo "</h2>";
-		the_content();
-		
-		?>
-		</a>
-		<?php
-		if(has_post_thumbnail()){
-			the_post_thumbnail($post->ID, 'postits');
-		} 
-		 ?>
-		</div>
-		<?php
+					<?php
+						echo "<h2>";
+						the_title();
+						echo "</h2>";
+						the_content();
+						
+					?>
+				</a>
+				<?php
+				if(has_post_thumbnail()){
+					the_post_thumbnail($post->ID, 'postits');
+				} 
+				?>
+			</div>
+			<?php
 		}
 	}
 

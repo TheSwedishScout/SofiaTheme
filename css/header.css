@@ -12,6 +12,7 @@ body > header{
 	background-size: cover;
 	margin-bottom: 18px;
 	position: relative;
+	/*background: var(--blue);*/
 	
 }
 #scoutflik{

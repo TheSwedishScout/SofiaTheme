@@ -1,6 +1,11 @@
-input, textarea{
+input, textarea, select{
     padding: 5px;
     font-size: 1.2em;
+    min-width: 50%;
+}
+textarea{
+    resize: vertical;
+    width: 100%;
 }
 input[type="submit"], input[type="button"], .reply a{
     background: var(--blue);
@@ -22,11 +27,12 @@ input[type="submit"]:hover, input[type="button"]:hover, .reply:hover a{
 input[type="submit"]:focus, input[type="button"]:focus{
     outline: 0px;
 }
-input:focus{
+input:focus, select:focus{
     outline: 1px solid var(--upptackare);
 }
 label{
     display: block;
+    margin-top: 8px;
 }
 .required{
     color: red;
@@ -37,4 +43,15 @@ label{
 }
 .comments-aria{
     list-style: none;
+}
+
+input[type='checkbox']{
+    min-width: auto;
+    width: 1.2em;
+    height: 1.2em;
+    vertical-align: middle;
+    margin-right: .4em;
+}
+input[type='checkbox'] + label{
+    display: inline-block;
 }
