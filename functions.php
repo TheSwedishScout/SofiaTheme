@@ -3,7 +3,7 @@ if ( ! isset( $content_width ) ) $content_width = 1362;
 include 'inc/admin-function.php';
 include 'inc/frontpage.php';
 // Add Shortcode
-function sofia_max_infobar( $atts , $content = null ) {
+/*function sofia_max_infobar( $atts , $content = null ) {
 
 	// Attributes
 	$atts = shortcode_atts(
@@ -16,9 +16,9 @@ function sofia_max_infobar( $atts , $content = null ) {
 		'Infobar'
 	);
 
-	/*kåd här*/
+	// kåd här
 
-	/*KOLLA efter bilder i content och se till att de hamnar för sigkälva så de hamnar i höger */
+	// KOLLA efter bilder i content och se till att de hamnar för sigkälva så de hamnar i höger 
 	$tor = "<div class='clear-action-box'></div>
 			<div class='action-box' style='background-color:{$atts['color']}'>
 				<div>
@@ -33,6 +33,7 @@ function sofia_max_infobar( $atts , $content = null ) {
 
 }
 add_shortcode( 'Infobar', 'sofia_max_infobar' );
+*/
 
 function sofia_max_additional_custom_styles() {
 
@@ -112,7 +113,7 @@ add_action( 'widgets_init', 'sofia_max_widgets_init' );
 add_action( 'after_setup_theme', 'sofia_max_theme_setup' );
 function sofia_max_theme_setup() {
 	add_image_size( 'logo_size', 100, 100, false );
-	add_image_size( 'wallsize', 258 );
+	add_image_size( 'wallsize', 872 );
 	add_image_size( 'postits', 665, 300, array('center', 'center') );
 	add_image_size( 'pageHeader', 1920, 300, true );
 
@@ -307,5 +308,85 @@ function get_avg_luminance($filename, $num_samples=10) {
         
 
         return $avg_lum;
-    }
+	}
+	
+	function print_categorys($post){
+		?>
+		<div class="categorys">
+				<?php
+				$post_categories = get_the_category($post->id);
+				foreach($post_categories as $cat){
+					//Loop threw all the categorys
+					// Get the URL of this category
+					$category_link = get_category_link( $cat->cat_ID );
+
+					switch ($cat->name){
+						case 'Kåren':
+							//The logo
+							if(has_custom_logo()){
+
+								$custom_logo_id = get_theme_mod( 'custom_logo' );
+								$logo_image = wp_get_attachment_image_src( $custom_logo_id , 'logo_size' );
+					
+								?>
+								<a class="category image" href="<?php echo esc_url( $category_link ); ?>" title="Kategori <?php echo $cat->name;?>">
+								<img alt="logo märke" src="<?php echo $logo_image[0] ?>">
+								</a>
+								<?php
+							}else{
+								/*echo "Scoutemblem";*/
+								?>
+								<a class="category image" href="<?php echo esc_url( $category_link ); ?>" title="Kategori <?php echo $cat->name;?>">
+								<img alt="Scouterna svenska scouternas symbol" src="<?php echo get_template_directory_uri() . '/images/Scoutsymbolen_rgb.png' ?>">
+								</a>
+								<?php
+					
+					
+							}
+							break;
+						case 'Spårare':
+							?>
+								<a class="category image" href="<?php echo esc_url( $category_link ); ?>" title="Kategori <?php echo $cat->name;?>">
+								<img alt="Spårar avdelningens märke" src="<?php echo get_template_directory_uri()."/images/avdelningar/spårare.png"; ?>">
+								</a>
+							<?php
+							break;
+						case 'Upptäckare':
+							?>
+								<a class="category image" href="<?php echo esc_url( $category_link ); ?>" title="Kategori <?php echo $cat->name;?>">
+									<img alt="Upptäckar avdelningens märke" src="<?php echo get_template_directory_uri()."/images/avdelningar/upptäckare.png"; ?>">
+								</a>
+							<?php
+							break;
+						case 'Äventyrare':
+								?>
+								<a class="category image" href="<?php echo esc_url( $category_link ); ?>" title="Kategori <?php echo $cat->name;?>">
+									<img alt="Äventyrar avdelningens märke" src="<?php echo get_template_directory_uri()."/images/avdelningar/äventyrare.png"; ?>">
+								</a>
+							<?php
+							break;
+						case 'Utmanare':
+							?>
+								<a class="category image" href="<?php echo esc_url( $category_link ); ?>" title="Kategori <?php echo $cat->name;?>">
+									<img alt="Utmanarnas avdelningens märke" src="<?php echo get_template_directory_uri()."/images/avdelningar/utmanare.png"; ?>">
+								</a>
+							<?php
+							break;
+						case 'Rover':
+						?>
+						<a class="category image" href="<?php echo esc_url( $category_link ); ?>" title="Kategori <?php echo $cat->name;?>">
+									<img alt="Rover avdelningens märke" src="<?php echo get_template_directory_uri()."/images/avdelningar/rover.png"; ?>">
+								</a>
+							<?php
+							break;
+						default:
+							?>
+							<a class="category" href="<?php echo esc_url( $category_link ); ?>" title="Kategori <?php echo $cat->name;?>"><?php echo $cat->name;?></a>
+							<?php
+					}
+				}
+		?>
+		</div>
+		<?php
+	}
 	?>

@@ -2,6 +2,7 @@
 get_header();
 ?>
 <main>
+	<div class="articles">
 <?php
 if ( have_posts() ) {
 	while ( have_posts() ) {
@@ -16,7 +17,7 @@ if ( have_posts() ) {
 		if ( is_home() ) {
 		  //echo ' blog page';
 		  ?><div class="exerpt">
-			<?php the_excerpt();?>
+			<?php the_content();?>
 			</div>
 			<?php
 
@@ -57,18 +58,9 @@ if ( have_posts() ) {
 		
 				wp_link_pages();
 				//var_dump(get_the_tags($post->id));
-				$post_categories = get_the_category($post->id);
 				//var_dump($post_categories );
-					
-				foreach($post_categories as $cat){
-					//Loop threw all the categorys
-					// Get the URL of this category
-					$category_link = get_category_link( $cat->cat_ID );
-					?>
-					<a class="category" href="<?php echo esc_url( $category_link ); ?>" title="<?php echo $cat->name;?>"><?php echo $cat->name;?></a>
-					<?php
-				}
-		?>
+				print_categorys($post);
+				?>
 			<?php the_author_link(); the_date( '', ' ', '', true ); ?>
 		</footer>
 		</article>
@@ -82,9 +74,14 @@ if ( have_posts() ) {
 	if ( get_previous_posts_link() ) {
 		previous_posts_link( 'Nyare inlägg', 10 );
 	}
-				
-			
-	get_template_part( 'sidebar', 'index' );
+	?>
+	<!-- end of articles -->
+	</div> 
+	<?php
+	if(!is_home()){
+
+		get_template_part( 'sidebar', 'index' );
+	}		
 ?>
 </main>
 <?php

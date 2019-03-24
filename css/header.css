@@ -84,6 +84,7 @@ body header nav ul li.menu-item-home a:before{
 	}
 	.menu-item-has-children.current_page_item > a:after{
 		border-color: var(--light);
+		transform: rotate(45deg);
 		-webkit-transform: rotate(45deg);
 	}
 	.menu-item-has-children > .sub-menu{
@@ -160,6 +161,11 @@ body header.dark .karnamn a{
 }
 body header.light #hamburger span{
 	background: var(--light);
+	transition: background .2s;
+}
+body header.light #hamburger.open span{
+	background: var(--dark);
+	
 }
 body > header > .action-btn{
 	display: block;
@@ -180,7 +186,7 @@ header button.caldera-forms-modal, footer button.caldera-forms-modal,
 	font-size: 20px;
 	border-radius: 8px;
 	box-shadow: 3px 3px 6px rgba(14,14,14,0.4);
-	transission: transform .4s;
+	transition: transform .4s;
 	border: none;
 }
 header button.caldera-forms-modal:hover, .action-btn a:hover, footer button.caldera-forms-modal:hover{
@@ -222,8 +228,8 @@ header button.caldera-forms-modal:active, .action-btn a:active, footer button.ca
 	-webkit-transform: translateY(-10px);
 	        transform: translateY(-10px);
 }
-.avdelningar-nav p{
-}
+/*.avdelningar-nav p{
+}*/
 .avdelningar-nav li a{
 	display: -ms-grid;
 	display: grid;

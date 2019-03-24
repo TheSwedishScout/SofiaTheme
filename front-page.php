@@ -8,33 +8,37 @@ get_header('home');
 	nästa läger (kalender)
 	senaste nyheten (post)
 	*/
-		?>
-	
-	
-	<div class="frontpageNotes nr-<?php echo count($query->posts); ?>" >
-<?php	
 	$args = array(
-		'post_type' => 'blogg',
+		'post_type' => 'post',
+		
 		'posts_per_page' => get_option('posts'),
-		'post_in'  => get_option( 'sticky_posts' ),
+		'posts_per_page' => 2,
+		'ignore_sticky_posts' => true,
+		//'post_in'  => get_option( 'sticky_posts' ),
 	);
 	$news = new WP_Query( $args );
 	$args = array(
 		'post_type' => 'front_page',
-		'posts_per_page' => get_option('posts'),
-		'post_in'  => get_option( 'sticky_posts' ),
+		'posts_per_page' => 2,//get_option('posts'),
+		//'post_in'  => get_option( 'sticky_posts' ),
 	);
 	$query = new WP_Query( $args );
+	//echo '<pre>' . var_export($news, true) . '</pre>';
+		?>
+	
+	
+	<div class="frontpageNotes nr-<?php echo count($query->posts) + count($news->posts); ?>" >
+<?php	
 
 	?>
 	
 	<?php
 
-	if ( $query->have_posts() ) {
-		while ( $query->have_posts() ) {
-			$query->the_post(); 
+	if ( $news->have_posts() ) {
+		while ( $news->have_posts() ) {
+			$news->the_post(); 
 			?>
-			<div class="news" id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+			<div class="news post" id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 				<a href="<?php the_permalink()?>">
 
 					<?php
@@ -49,6 +53,40 @@ get_header('home');
 				if(has_post_thumbnail()){
 					the_post_thumbnail($post->ID, 'postits');
 				} 
+				print_categorys($post);
+				?>
+			</div>
+			<?php
+		}
+	}
+	if ( $query->have_posts() ) {
+		while ( $query->have_posts() ) {
+			$query->the_post(); 
+			?>
+			<div class="news" id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+			<?php
+			$link = get_the_permalink();
+			if(get_field('innehals_sida'))
+			{
+				$link = get_field('innehals_sida')['url'];
+			}
+			?>
+
+				<a href="<?php echo $link ?>">
+
+					<?php
+						echo "<h2>";
+						the_title();
+						echo "</h2>";
+						the_content();
+						
+					?>
+				</a>
+				<?php
+				if(has_post_thumbnail()){
+					the_post_thumbnail($post->ID, 'postits');
+				} 
+				print_categorys($post);
 				?>
 			</div>
 			<?php

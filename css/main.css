@@ -102,12 +102,7 @@ img{
 	max-width: 100%;
     height: auto;
 }
-.widget{
-	padding: 20px 0;
-}
-.widget:not(:last-child){
-	border-bottom: 1px solid #777;
-}
+
 
 @media screen and (min-width: 1362px) {
 	:root{
