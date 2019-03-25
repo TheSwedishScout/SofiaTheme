@@ -1,8 +1,9 @@
 <?php
+if ( ! isset( $content_width ) ) $content_width = 1362;
 include 'inc/admin-function.php';
 include 'inc/frontpage.php';
 // Add Shortcode
-function sofia_max_infobar( $atts , $content = null ) {
+/*function sofia_max_infobar( $atts , $content = null ) {
 
 	// Attributes
 	$atts = shortcode_atts(
@@ -15,9 +16,9 @@ function sofia_max_infobar( $atts , $content = null ) {
 		'Infobar'
 	);
 
-	/*kåd här*/
+	// kåd här
 
-	/*KOLLA efter bilder i content och se till att de hamnar för sigkälva så de hamnar i höger */
+	// KOLLA efter bilder i content och se till att de hamnar för sigkälva så de hamnar i höger 
 	$tor = "<div class='clear-action-box'></div>
 			<div class='action-box' style='background-color:{$atts['color']}'>
 				<div>
@@ -25,13 +26,14 @@ function sofia_max_infobar( $atts , $content = null ) {
 					<h3>{$atts['rubrik']}</h3>
 					<p>{$content}</p>
 					</div>
-					<img src='{$atts['img']}'>
+					<img alt='{$atts['rubrik']}' src='{$atts['img']}'>
 				</div>
 			</div>";
 	return $tor;
 
 }
 add_shortcode( 'Infobar', 'sofia_max_infobar' );
+*/
 
 function sofia_max_additional_custom_styles() {
 
@@ -43,9 +45,19 @@ function sofia_max_additional_custom_styles() {
     wp_enqueue_style( 'SofiaScoutkårBody', get_template_directory_uri() . '/css/body.css' );
     wp_enqueue_style( 'SofiaScoutkårFooter', get_template_directory_uri() . '/css/footer.css' );
     wp_enqueue_style( 'SofiaScoutkårWidget', get_template_directory_uri() . '/css/widget.css' );
-
+	wp_enqueue_style( 'SofiaScoutkårInput', get_template_directory_uri() . '/css/input.css' );
+	wp_enqueue_style( 'SofiaScoutkårcomment', get_template_directory_uri() . '/css/comment.css' );
+    if(is_page_template('parent-page.php')){
+		wp_enqueue_style( 'SofiaScoutkårParentPage', get_template_directory_uri() . '/css/parent.css' );
+	}
+	wp_enqueue_style( 'my-theme-ie', get_template_directory_uri() . "/css/ie.css" );
+	wp_style_add_data( 'my-theme-ie', 'conditional', 'IE' );
+	
+	
     wp_enqueue_script("jquery");
     wp_enqueue_script( 'SofiaScoutkårjs', get_template_directory_uri() . '/js/main.js' );
+    wp_enqueue_script( 'commentjs', get_template_directory_uri() . '/js/comments.js' );
+	if ( is_singular() ) wp_enqueue_script( "comment-reply" );
 
 
 }
@@ -56,7 +68,12 @@ add_action( 'wp_enqueue_scripts', 'sofia_max_additional_custom_styles' );
 *
 * Add a menu location
 */
-register_nav_menu('main', 'The Main menu' );
+add_action( 'after_setup_theme', 'sofia_max_register_primary_menu' );
+ 
+function sofia_max_register_primary_menu() {
+    //register_nav_menu( 'primary', __( 'Primary Menu', 'theme-text-domain' ) );
+	register_nav_menu('main', 'The Main menu' );
+}
 /** - - - - - - - - - - - - - - - - - - - - - - - - - - - - -**/
 function sofia_max_widgets_init() {
     register_sidebar( array(
@@ -96,7 +113,8 @@ add_action( 'widgets_init', 'sofia_max_widgets_init' );
 add_action( 'after_setup_theme', 'sofia_max_theme_setup' );
 function sofia_max_theme_setup() {
 	add_image_size( 'logo_size', 100, 100, false );
-	add_image_size( 'wallsize', 258 );
+	add_image_size( 'wallsize', 872 );
+	add_image_size( 'postits', 665, 300, array('center', 'center') );
 	add_image_size( 'pageHeader', 1920, 300, true );
 
 
@@ -111,6 +129,7 @@ function sofia_max_theme_setup() {
 	add_theme_support('title-tag');
 	add_theme_support('post-thumbnails');
 	add_theme_support( 'title-tag' );
+	add_theme_support( 'automatic-feed-links' );
 	add_theme_support( 'custom-logo', array(
 	    'height'      => 100,
 	    'width'       => 100,
@@ -122,6 +141,7 @@ function sofia_max_theme_setup() {
 	    'video' => false,
 	);
 	add_theme_support( 'custom-header', $defaults );
+	add_editor_style();
 }
 
 function the_kårnamn()
@@ -132,19 +152,19 @@ function the_kårnamn()
 	?>
 	<div class="karnamn logo">
 	
-	<a href="<?= get_home_url(); ?>" >
+	<a href="<?php echo get_home_url(); ?>" >
 
-		<span class="before"><?= $karnamn[0]?> </span>
+		<span class="before"><?php echo $karnamn[0]?> </span>
 		<?php
 		if(has_custom_logo()){
 
 			$custom_logo_id = get_theme_mod( 'custom_logo' );
 			$logo_image = wp_get_attachment_image_src( $custom_logo_id , 'logo_size' );
 
-			?><img src="<?= $logo_image[0] ?>"><?php
+			?><img alt="logo märke" src="<?php echo $logo_image[0] ?>"><?php
 		}else{
 			/*echo "Scoutemblem";*/
-			?><img src="<?= get_template_directory_uri() . '/images/Scoutsymbolen_rgb.png' ?>"><?php
+			?><img alt="Scouterna svenska scouternas symbol" src="<?php echo get_template_directory_uri() . '/images/Scoutsymbolen_rgb.png' ?>"><?php
 
 
 		}
@@ -157,14 +177,14 @@ function the_kårnamn()
 
 function the_avdelningarna($class=""){
 	?>
-	<ul class="avdelningar-nav <?=$class; ?>">
+	<ul class="avdelningar-nav <?php echo$class; ?>">
 	<?php
 		if (!empty(get_option( 'bäver' ))){
 			?>
 			<li>
-				<a href="<?= get_option( 'bäver' );?>">
-					<img src="<?= get_template_directory_uri()."/images/avdelningar/bäver.png"; ?>">
-					<p>Spårarna</p>
+				<a href="<?php echo get_option( 'bäver' );?>">
+					<img alt="Bäver avdelningens märke" src="<?php echo get_template_directory_uri()."/images/avdelningar/bäver.png"; ?>">
+					<p>Bäver</p>
 				</a>
 			</li>
 			<?php
@@ -173,8 +193,8 @@ function the_avdelningarna($class=""){
 		if (!empty(get_option( 'spårare' ))){
 			?>
 			<li>
-				<a href="<?= get_option( 'spårare' );?>">
-					<img src="<?= get_template_directory_uri()."/images/avdelningar/spårare.png"; ?>">
+				<a href="<?php echo get_option( 'spårare' );?>">
+					<img alt="Spårar avdelningens märke" src="<?php echo get_template_directory_uri()."/images/avdelningar/spårare.png"; ?>">
 					<p>Spårarna</p>
 				</a>
 			</li>
@@ -184,8 +204,8 @@ function the_avdelningarna($class=""){
 		if (!empty(get_option( 'upptäckare' ))){
 			?>
 			<li>
-				<a href="<?= get_option( 'upptäckare' );?>">
-					<img src="<?= get_template_directory_uri()."/images/avdelningar/upptäckare.png"; ?>">
+				<a href="<?php echo get_option( 'upptäckare' );?>">
+					<img alt="Upptäckar avdelningens märke" src="<?php echo get_template_directory_uri()."/images/avdelningar/upptäckare.png"; ?>">
 					<p>Upptäckarna</p>
 				</a>
 			</li>
@@ -195,8 +215,8 @@ function the_avdelningarna($class=""){
 		if (!empty(get_option( 'äventyrare' ))){
 			?>
 			<li>
-				<a href="<?= get_option( 'äventyrare' );?>">
-					<img src="<?= get_template_directory_uri()."/images/avdelningar/äventyrare.png"; ?>">
+				<a href="<?php echo get_option( 'äventyrare' );?>">
+					<img alt="Äventyrar avdelningens märke" src="<?php echo get_template_directory_uri()."/images/avdelningar/äventyrare.png"; ?>">
 					<p>Äventyrarna</p>
 				</a>
 			</li>
@@ -206,8 +226,8 @@ function the_avdelningarna($class=""){
 		if (!empty(get_option( 'utmanare' ))){
 			?>
 			<li>
-				<a href="<?= get_option( 'utmanare' );?>">
-			<img src="<?= get_template_directory_uri()."/images/avdelningar/utmanare.png"; ?>">
+				<a href="<?php echo get_option( 'utmanare' );?>">
+			<img alt="Utmanarnas avdelningens märke" src="<?php echo get_template_directory_uri()."/images/avdelningar/utmanare.png"; ?>">
 					<p>Utmanarna</p>
 				</a>
 			</li>
@@ -217,8 +237,8 @@ function the_avdelningarna($class=""){
 		if (!empty(get_option( 'rover' ))){
 			?>
 			<li>
-				<a href="<?= get_option( 'rover' );?>">
-			<img src="<?= get_template_directory_uri()."/images/avdelningar/rover.png"; ?>">
+				<a href="<?php echo get_option( 'rover' );?>">
+			<img alt="Rover avdelningens märke" src="<?php echo get_template_directory_uri()."/images/avdelningar/rover.png"; ?>">
 					<p>Rover</p>
 				</a>
 			</li>
@@ -233,7 +253,7 @@ function the_avdelningarna($class=""){
 function get_avg_luminance($filename, $num_samples=10) {
 		$type = exif_imagetype($filename);
 		//var_dump($type);
-		ini_set('memory_limit', '-1');
+		//ini_set('memory_limit', '-1');
 		switch ($type) {
 			case IMAGETYPE_GIF:
 				# code...
@@ -288,8 +308,85 @@ function get_avg_luminance($filename, $num_samples=10) {
         
 
         return $avg_lum;
-    }
+	}
+	
+	function print_categorys($post){
+		?>
+		<div class="categorys">
+				<?php
+				$post_categories = get_the_category($post->id);
+				foreach($post_categories as $cat){
+					//Loop threw all the categorys
+					// Get the URL of this category
+					$category_link = get_category_link( $cat->cat_ID );
 
+					switch ($cat->name){
+						case 'Kåren':
+							//The logo
+							if(has_custom_logo()){
 
-
-?>
+								$custom_logo_id = get_theme_mod( 'custom_logo' );
+								$logo_image = wp_get_attachment_image_src( $custom_logo_id , 'logo_size' );
+					
+								?>
+								<a class="category image" href="<?php echo esc_url( $category_link ); ?>" title="Kategori <?php echo $cat->name;?>">
+								<img alt="logo märke" src="<?php echo $logo_image[0] ?>">
+								</a>
+								<?php
+							}else{
+								/*echo "Scoutemblem";*/
+								?>
+								<a class="category image" href="<?php echo esc_url( $category_link ); ?>" title="Kategori <?php echo $cat->name;?>">
+								<img alt="Scouterna svenska scouternas symbol" src="<?php echo get_template_directory_uri() . '/images/Scoutsymbolen_rgb.png' ?>">
+								</a>
+								<?php
+					
+					
+							}
+							break;
+						case 'Spårare':
+							?>
+								<a class="category image" href="<?php echo esc_url( $category_link ); ?>" title="Kategori <?php echo $cat->name;?>">
+								<img alt="Spårar avdelningens märke" src="<?php echo get_template_directory_uri()."/images/avdelningar/spårare.png"; ?>">
+								</a>
+							<?php
+							break;
+						case 'Upptäckare':
+							?>
+								<a class="category image" href="<?php echo esc_url( $category_link ); ?>" title="Kategori <?php echo $cat->name;?>">
+									<img alt="Upptäckar avdelningens märke" src="<?php echo get_template_directory_uri()."/images/avdelningar/upptäckare.png"; ?>">
+								</a>
+							<?php
+							break;
+						case 'Äventyrare':
+								?>
+								<a class="category image" href="<?php echo esc_url( $category_link ); ?>" title="Kategori <?php echo $cat->name;?>">
+									<img alt="Äventyrar avdelningens märke" src="<?php echo get_template_directory_uri()."/images/avdelningar/äventyrare.png"; ?>">
+								</a>
+							<?php
+							break;
+						case 'Utmanare':
+							?>
+								<a class="category image" href="<?php echo esc_url( $category_link ); ?>" title="Kategori <?php echo $cat->name;?>">
+									<img alt="Utmanarnas avdelningens märke" src="<?php echo get_template_directory_uri()."/images/avdelningar/utmanare.png"; ?>">
+								</a>
+							<?php
+							break;
+						case 'Rover':
+						?>
+						<a class="category image" href="<?php echo esc_url( $category_link ); ?>" title="Kategori <?php echo $cat->name;?>">
+									<img alt="Rover avdelningens märke" src="<?php echo get_template_directory_uri()."/images/avdelningar/rover.png"; ?>">
+								</a>
+							<?php
+							break;
+						default:
+							?>
+							<a class="category" href="<?php echo esc_url( $category_link ); ?>" title="Kategori <?php echo $cat->name;?>"><?php echo $cat->name;?></a>
+							<?php
+					}
+				}
+		?>
+		</div>
+		<?php
+	}
+	?>

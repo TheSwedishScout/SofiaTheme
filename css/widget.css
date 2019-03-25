@@ -1,3 +1,42 @@
 #pageSidebar > ul{
 	list-style: none;
 }
+.widget iframe{
+	max-width: 100%;
+}
+.widget > ul{
+	list-style: none;
+}
+.calendar_wrap table{
+	width: 100%;
+	text-align: center;
+}
+.calendar_wrap table tfoot{
+	text-align: left;
+}
+.calendar_wrap table caption{
+	font-weight: 600;
+}
+.widget_meta ul{
+	list-style: disc;
+	margin-left: 20px; 
+}
+.widget_calendar tfoot a{
+	background: var(--blue);
+	color: var(--light);
+	padding: 4px;
+	border-radius: 1em;
+}
+.widget{
+	padding: 5px;
+	margin-top: 10px;
+	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#f0f0f0+12,fafafa+100 */
+background: rgb(240,240,240); /* Old browsers */
+background: -moz-linear-gradient(left, rgb(240,240,240) 12%, rgb(250,250,250) 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(left, rgb(240,240,240) 12%,rgb(250,250,250) 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to right, rgb(240,240,240) 12%,rgb(250,250,250) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f0f0f0', endColorstr='#fafafa',GradientType=1 ); /* IE6-9 */
+}
+.widget:first-child{
+	margin-top: 0px;
+}

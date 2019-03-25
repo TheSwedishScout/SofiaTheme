@@ -12,7 +12,7 @@ function frontpage_post_type() {
 		'label'                 => __( 'Första sidan', 'sofiascoutkar' ),
 		'description'           => __( 'Posts on first page', 'sofiascoutkar' ),
 		'labels'                => $labels,
-		'supports'              => array( 'title', 'editor' ),
+		'supports'              => array( 'title', 'editor', 'thumbnail' ),
 		'taxonomies'            => array( 'category', 'post_tag' ),
 		'hierarchical'          => false,
 		'public'                => true,

@@ -1,4 +1,7 @@
 <?php 
+/**
+ * Template Name: Fullbrädd
+*/
 get_header();
 ?>
 <main>
@@ -29,25 +32,20 @@ if ( have_posts() ) {
 		  }
 		} else {
 		  //normal page
-		  ?><div  class="exerpt">
-			<?php the_content();
-			comments_template();
-			?>
+		  ?><div class="exerpt">
+			<?php the_content();?>
 			</div><?php
 		}
 		?>
 		
 		<footer>
-		<?php
-		wp_link_pages();
-		?>
+		<?php wp_link_pages(); ?>
 			Senast uppdaterad: <?php  the_modified_time("j F Y") ?>
 		</footer>
 		</article>
 		<?php
 	} // end while
 } // end if
-get_template_part( 'sidebar', 'page' );
 ?>
 
 </main>

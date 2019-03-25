@@ -21,6 +21,7 @@ body > footer{
 	    grid-template-areas: "action" "social" "logga" "kontakt" "copy";
 	grid-gap:16px;
 	padding: 16px 33px;
+	max-width: 100vw;
 }
 body > footer > *:first-child{
 	-ms-grid-row: 4;
