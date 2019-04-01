@@ -154,9 +154,11 @@ body > main > div.frontpageNotes{
 		grid-template-columns: 100%;
 		
 	}
-	main{
+	body main{
 		margin: 0 auto;
 		max-width: var(--max-width);
+	}
+	body:not(.home) main{
 		display: grid;
 		grid-template-columns:auto 258px;
 		grid-template-rows: auto;
