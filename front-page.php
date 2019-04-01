@@ -36,7 +36,9 @@ get_header('home');
 
 	if ( $news->have_posts() ) {
 		while ( $news->have_posts() ) {
-			$news->the_post(); 
+			$news->the_post();
+			get_template_part( 'inc/post', 'the_post' );
+			/*
 			?>
 			<div class="news post" id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 				<a href="<?php the_permalink()?>">
@@ -56,12 +58,15 @@ get_header('home');
 				print_categorys($post);
 				?>
 			</div>
-			<?php
+			<?php 
+			*/
 		}
 	}
 	if ( $query->have_posts() ) {
 		while ( $query->have_posts() ) {
 			$query->the_post(); 
+			get_template_part( 'inc/post', 'the_post' );
+			/*
 			?>
 			<div class="news" id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 			<?php
@@ -90,6 +95,7 @@ get_header('home');
 				?>
 			</div>
 			<?php
+			*/
 		}
 	}
 

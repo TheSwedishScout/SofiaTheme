@@ -181,24 +181,34 @@ body > main > div.frontpageNotes{
 	}
 	.blog main article{
 		grid-template-columns:1fr 2fr;
-		grid-template-areas: "header header" "article image" "footer image";
+		/* grid-template-areas: "header header" "article image" "footer image"; */
 		
 	}
 
 	.blog article img{
-		grid-area: image;
+		grid-column: 2/3;
+		grid-row: 2/3;
+		/* grid-area: image; */
 	}
 	.page main .info{
 		grid-area: info;
 	}
 	main article .heading{
-		grid-area: header;
+		grid-column: 1/3;
+		grid-row: 1/2;
+		/* grid-area: header; */
 	}
 	main article .exerpt{
-		grid-area: article;
+		grid-column: 1/2;
+		grid-row: 2/3;
+	}
+	main article .exerpt.imageless{
+		grid-column: 1/3;
 	}
 	main article footer{
-		grid-area: footer;
+		grid-column: 1/3;
+		grid-row: 3/4;
+		/* grid-area: footer; */
 	}
 	.action-box > div{
 		max-width: var(--max-width);

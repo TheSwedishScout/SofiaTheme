@@ -25,3 +25,6 @@ ul.comments{
     margin: 4px;
     padding: 6px;
 }
+.page-numbers{
+    display: inline-block;
+}

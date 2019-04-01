@@ -8,7 +8,8 @@ if ( have_posts() ) {
 		the_post(); 
 		//
 		// Post Content here
-		
+		get_template_part( 'inc/post', 'the_post' );
+		/*
 		?>
 		<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 		<h1 class="heading"><?php the_title(); ?></h1>
@@ -45,6 +46,7 @@ if ( have_posts() ) {
 		</footer>
 		</article>
 		<?php
+		*/
 	} // end while
 } // end if
 get_template_part( 'sidebar', 'page' );
