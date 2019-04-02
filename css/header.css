@@ -478,4 +478,10 @@ body > header #header-image{
 		left: 107px;
 		width: auto;
 	}
+	
 }
+@media screen and (min-width: 500px) {
+		.avdelningar-nav li{
+			width: 80px;
+		}
+	}

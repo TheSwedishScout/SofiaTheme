@@ -41,6 +41,7 @@ function sofia_max_additional_custom_styles() {
     wp_enqueue_style( 'Null', get_template_directory_uri() . '/css/null.css' );
     wp_enqueue_style( 'wpcore', get_template_directory_uri() . '/css/wpCore.css' );
     wp_enqueue_style( 'SofiaScoutkårMain', get_template_directory_uri() . '/css/main.css' );
+    wp_enqueue_style( 'SofiaScoutkårPost', get_template_directory_uri() . '/css/post.css' );
     wp_enqueue_style( 'SofiaScoutkårHeader', get_template_directory_uri() . '/css/header.css' );
     wp_enqueue_style( 'SofiaScoutkårBody', get_template_directory_uri() . '/css/body.css' );
     wp_enqueue_style( 'SofiaScoutkårFooter', get_template_directory_uri() . '/css/footer.css' );
