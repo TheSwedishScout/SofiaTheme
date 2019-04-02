@@ -1,0 +1,41 @@
+/*
+* Categorys and tags starting whith styling the categorys
+*/
+
+a.category{
+    display: inline-block;
+}
+.category.image{
+	text-decoration: none;
+}
+.category.image img{
+	max-height: 50px;
+}
+
+
+li.tag, a.category{
+    margin-left: 5px;
+}
+/*
+* Tags
+*/
+
+.tags{
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    margin-bottom: 5px;
+}
+
+li.tag a{
+    display: inline-block;
+    padding: 8px;
+    background: var(--light);
+    border-radius: 3px;
+}
+li.tag a:hover{
+    background: var(--blue);
+    color: var(--light);
+}

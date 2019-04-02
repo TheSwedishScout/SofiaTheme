@@ -7,7 +7,7 @@
             wp_list_comments();
         ?>
     </ul>
-    <div id="coment-pagenation">
+    <div class="coment-pagenation">
         <?php
             paginate_comments_links( array(
                 'prev_text' => '&laquo;&laquo;'.__('Äldre komentarer', 'sofiascoutkar'),

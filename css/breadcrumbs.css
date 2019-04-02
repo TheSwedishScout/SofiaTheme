@@ -1,0 +1,23 @@
+/* Breadcrumbs are in the header.php file */
+
+#breadcrumbs{
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+
+}
+.separator {
+    margin: 0 5px;
+}
+
+@media screen and (min-width: 562px) {
+    #breadcrumbs{
+        width: var(--max-width);
+        margin: 0 auto
+    }
+}
+
+@media screen and (min-width: 1362px) {
+}

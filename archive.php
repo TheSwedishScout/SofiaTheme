@@ -9,7 +9,7 @@ if ( have_posts() ) {
 		the_post(); 
 		//
 		// Post Content here
-		get_template_part( 'inc/post', 'the_post' );
+		get_template_part( 'inc/post_excerpts', 'the_post_excerpts' );
 
 	} // end while
 } // end if
@@ -24,8 +24,10 @@ if ( have_posts() ) {
 	<!-- end of articles -->
 	</div> 
 	<?php
-	
-		get_template_part( 'sidebar', 'sidebar' );		
+	if(!is_home()){
+
+		get_template_part( 'sidebar', 'index' );
+	}		
 ?>
 </main>
 <?php

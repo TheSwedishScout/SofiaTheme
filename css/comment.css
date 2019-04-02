@@ -5,6 +5,12 @@
     border-left: 4px solid var(--blue);
     padding-left: 5px;
 }
+.comment-author cite a{
+    font-style: italic;
+}
+.avatar {
+    vertical-align: middle
+}
 ul.comments{
     list-style: none;
 }
@@ -25,6 +31,22 @@ ul.comments{
     margin: 4px;
     padding: 6px;
 }
+.coment-pagenation{
+    text-align: center;
+}
 .page-numbers{
     display: inline-block;
+    padding: 4px 8px;
+    background: var(--blue);
+    color: var(--light);
+    border-radius: 15px;
+    text-align: center;
+    border: 1px solid var(--blue)
+}
+.page-numbers:not(.next):not(.prev){
+    min-width: 30px;
+}
+.page-numbers.current{
+    background: var(--light);
+    color: var(--blue);
 }

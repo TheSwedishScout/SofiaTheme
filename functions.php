@@ -47,6 +47,8 @@ function sofia_max_additional_custom_styles() {
     wp_enqueue_style( 'SofiaScoutkårWidget', get_template_directory_uri() . '/css/widget.css' );
 	wp_enqueue_style( 'SofiaScoutkårInput', get_template_directory_uri() . '/css/input.css' );
 	wp_enqueue_style( 'SofiaScoutkårcomment', get_template_directory_uri() . '/css/comment.css' );
+	wp_enqueue_style( 'SofiaScoutkårCategorysAndTags', get_template_directory_uri() . '/css/catsAndTags.css' );
+	wp_enqueue_style( 'SofiaScoutkårBreadbrumbs', get_template_directory_uri() . '/css/breadcrumbs.css' );
     if(is_page_template('parent-page.php')){
 		wp_enqueue_style( 'SofiaScoutkårParentPage', get_template_directory_uri() . '/css/parent.css' );
 	}

@@ -11,7 +11,7 @@
 	<div id="scoutflik"><img src="<?php echo get_template_directory_uri() . '/images/Tab-vertical.png' ?>"></div>
 	<?php
 
-	if ( is_home() ) {
+	if ( is_home() || is_archive() || !has_post_thumbnail($post->id) ) {
 			 $get_header_image = get_header_image();
 			
 		}else{
@@ -31,7 +31,8 @@
 		}
 	}
 	?>
-	<header class="main-header <?php echo $imglum; ?> <?php echo $luminance; ?>" style="background-image: url(<?php echo $get_header_image; ?>);">
+	<header class="main-header" >
+		<div id="header-image" class="<?php echo $imglum; ?> <?php echo $luminance; ?>" style="background-image: url(<?php echo $get_header_image; ?>);">
 		<div id="hamburger">
 			<span></span>
 			<span></span>
@@ -60,6 +61,7 @@
 		</nav>
 
 			<?php the_kårnamn(); ?>
+			</div>
 			<?php
 	$ua = htmlentities($_SERVER['HTTP_USER_AGENT'], ENT_QUOTES, 'UTF-8');
 	if (preg_match('~MSIE|Internet Explorer~i', $ua) || (strpos($ua, 'Trident/7.0') !== false && strpos($ua, 'rv:11.0') !== false)) {
@@ -98,7 +100,9 @@
 	<?php
 	die();
 	}
+	
 	?>
+	<?php get_template_part( 'inc/breadcrumbs', 'breadcrumbs' ); ?>
 	</header>
 	<?php 
 

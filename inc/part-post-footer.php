@@ -1,23 +1,34 @@
 <footer>
 <?php
-/* $defaults = array(
-	'before'           => '<p>' . __( 'Pages:', 'twentyfourteen' ),
-	'after'            => '</p>',
-	'link_before'      => '',
-	'link_after'       => '',
-	'next_or_number'   => 'number',
-	'separator'        => ' ',
-	'nextpagelink'     => __( 'Next page', 'twentyfourteen'),
-	'previouspagelink' => __( 'Previous page', 'twentyfourteen' ),
-	'pagelink'         => '%',
-	'echo'             => 1
-); */
+
 
 wp_link_pages();
-//var_dump(get_the_tags($post->id));
-//var_dump($post_categories );
-// print_categorys($post);
+
+$post_tags = get_the_tags();
+ 
+if ( $post_tags ) {
+	?>
+		<ul class="tags">
+	<?php
+    foreach( $post_tags as $tag ) {
+		?>	
+			<li class="tag">
+				<a href="<?php echo get_tag_link($tag->term_id); ?>"> <?php echo $tag->name; ?> </a>
+			</li>
+		<?php
+		
+	}
+	?>
+	</ul>
+	<?php
+}
 ?>
+
+
+
+
+
+
 <div class="categorys">
 	<?php
 	$post_categories = get_the_category($post->id);
