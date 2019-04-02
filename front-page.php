@@ -37,7 +37,7 @@ get_header('home');
 	if ( $news->have_posts() ) {
 		while ( $news->have_posts() ) {
 			$news->the_post();
-			get_template_part( 'inc/post', 'the_post' );
+			get_template_part( 'inc/post_excerpts', 'the_post_excerpts' );
 			/*
 			?>
 			<div class="news post" id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
