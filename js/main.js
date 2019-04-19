@@ -47,11 +47,50 @@ jQuery(document).ready(function ($) {
 
 		
 	})*/
+
+
+	var distance = (child, parent) => {
+		var dis = 0;
+		var found = false
+		let curent = document.getElementById(child)
+		let target = document.getElementById(parent)
+		while (!found) {
+			if (curent == target) {
+				found = true;
+			} else {
+				curent = curent.parentElement;
+			}
+			dis++
+		}
+		return (dis - 3) / 2
+
+	}
+
 	var hidden = [];
-	$(".menu-item-has-children").hover(function (e) {
-		var ancestor = $(".current-menu-ancestor .sub-menu")
-		var current = $(".current-menu-item .sub-menu")
-		e
+	// $('#main-menu a').hover((e) => {
+	// 	e.stopPropagation();
+	// 	debugger
+	// 	this
+
+	// })
+	$("li.menu-item-has-children").hover(function (e) {
+
+		var ancestor = $(".current-menu-ancestor .sub-menu");
+		var current = $(".current-menu-item .sub-menu");
+		var target = $(e.target.parentElement);
+		var ost = target.parent('.current-menu-parent');
+		let check = true
+		let dis = distance(e.target.parentElement.id, 'main-menu')
+
+		if (target.parent('.current-menu-parent').length > 0) {
+			check = false
+		}
+		let ost2 = target.find('.sub-menu')
+		if (target.find('.sub-menu').length !== 0) {
+			check = false
+
+		}
+		// debugger
 
 		if (window.outerWidth >= 1362) {
 			for (var i = ancestor.length - 1; i >= 0; i--) {
@@ -68,6 +107,7 @@ jQuery(document).ready(function ($) {
 			}
 
 		}
+		//debugger
 
 		/* Stuff to do when the mouse enters the element */
 	}, function () {

@@ -38,9 +38,7 @@ main{
 	/*
 
 */
-p.has-background{
-	margin: 5px -10px;
-}
+
 
 .action-box{
 	background: var(--blue);
@@ -168,7 +166,7 @@ body > main > div.frontpageNotes{
 		grid-template-rows: auto;
 	}
 	main article{
-		grid-template-columns:auto;
+		grid-template-columns:100%;
 		grid-template-rows:auto 1fr auto;
 		grid-template-areas: "header" "article" "footer"
 	}

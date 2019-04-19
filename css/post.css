@@ -1,3 +1,10 @@
 .exerpt ul, .exerpt ol{
     margin-left: 25px;
 }
+p.has-background, .wp-block-media-text{
+	margin: 5px -10px;
+}
+.wp-block-media-text{
+    padding: 10px;
+
+}

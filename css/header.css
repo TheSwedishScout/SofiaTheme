@@ -61,7 +61,7 @@ body header nav ul li.menu-item-home a:before{
 		color: var(--light);
 
 	}
-	#topMeny .sub-menu{
+	.sub-menu{
 		overflow: hidden;
 	}
 	.sub-menu{
@@ -87,17 +87,18 @@ body header nav ul li.menu-item-home a:before{
 		transform: rotate(45deg);
 		-webkit-transform: rotate(45deg);
 	}
-	.menu-item-has-children > .sub-menu{
+	.menu-item-has-children .sub-menu{
 		height: 0;
 
 	}
+	.current-menu-ancestor > .sub-menu,
 	.menu-item-has-children.current_page_item  > .sub-menu{
 		height: auto;
 	}
-	.menu-item-has-children > .sub-menu li{
+	.menu-item-has-children .sub-menu li{
 		overflow: hidden;
 	}
-	.current-menu-parent > .sub-menu{
+	.current-menu-parent .sub-menu{
 		height: 100%;
 	}
 
@@ -376,7 +377,8 @@ body > header #header-image{
 		top: 2em;
 	}
 	body header nav.fixed a{
-		padding: 8px 0;
+		padding: 0;
+		line-height: 36px;
 	}
 	body header nav.fixed ul li.menu-item-home{
 		display: block;
@@ -399,57 +401,69 @@ body > header #header-image{
 	body header nav ul li.menu-item-home{
 		display: none
 	}
-	body header nav .menu-item-has-children> .sub-menu{
+	/*removes arrow*/
+	.menu-item-has-children > a:after{ 
+		display: none;
+	}
+	.sub-menu li .sub-menu{
+		display: block;
+	}
+	.sub-menu li:not(:hover) .sub-menu{
+		display: none;
+	}
+	.sub-menu li.current-page-ancestor .sub-menu{
+		display: block;
+	}
+	.sub-menu{
+		position: absolute;
+		background: var(--light);
+		width: 100%;
+		left: 0;
+		padding-left: 0;
+		overflow: visible;
+		max-height: 36px;
+	}
+	.sub-menu a{
+		line-height: 36px;
+		padding:0;
+	}
+	li:hover .sub-menu{
+		z-index: 100;
+	}
+	
+	body header nav .menu-item-has-children .sub-menu{
 		position: absolute;
 		width: 100%;
 		margin: 0 auto;
 		padding: 0;
-		/* max-width: var(--max-width); */
+		
 		left: 0;
 		top: 3.28em;
 		
 	}
-	body header nav .menu-item-has-children> .sub-menu .sub-menu{
+	body header nav .menu-item-has-children .sub-menu .sub-menu{
 		top: 37px;
 	}
-	.menu-item-has-children > a:after{
-		display: none;
-	}
-	body header nav.fixed .menu-item-has-children> .sub-menu{
+	body header nav.fixed .menu-item-has-children .sub-menu{
 		top: 37px;
 		background: var(--light);
 	}
-	body header nav .menu-item-has-children> .sub-menu a{
-		padding: 8px 0;
-	}
-	body header nav.fixed .menu-item-has-children.current-menu-item > .sub-menu,
-	body header nav.fixed .menu-item-has-children.current-menu-ancestor > .sub-menu,
-	body header nav.fixed .menu-item-has-children:hover > .sub-menu{
+	body header nav .menu-item-has-children 
+	body header nav.fixed .menu-item-has-children.current-menu-item  .sub-menu,
+	body header nav.fixed .menu-item-has-children.current-menu-ancestor  .sub-menu,
+	body header nav.fixed .menu-item-has-children:hover  .sub-menu{
 		background: var(--light);
 	}
-	body header nav .menu-item-has-children.current-menu-item > .sub-menu,
-	body header nav .menu-item-has-children.current-menu-ancestor > .sub-menu,
-	body header nav .menu-item-has-children:hover > .sub-menu{
+	body header nav .menu-item-has-children.current-menu-item .sub-menu,
+	body header nav .menu-item-has-children.current-menu-ancestor .sub-menu,
+	body header nav .menu-item-has-children:hover .sub-menu{
 		background: var(--lighttrans);
 		height: 36px;
-		/*border-bottom: 1px solid;*/
+		
     	box-shadow: 1px 4px 2px var(--dark);
 	}
-	body header nav .menu-item-has-children:hover > .sub-menu{
-		z-index: 100;
-		border-bottom: 1px solid;
-    	box-shadow: 1px 4px 2px #777;
-	}
+
 	
-	.submenu li{
-		border-top: 1px solid var(--dark);
-	}
-	.submenu a{
-		padding: 2px 0;
-	}
-	.fixed .submenu a{
-		padding: 0;
-	}
 	header .karnamn a{
 		font-size: 134px;
 		line-height: 147px;

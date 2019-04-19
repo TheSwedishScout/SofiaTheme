@@ -12,14 +12,14 @@ get_header('home');
 		'post_type' => 'post',
 		
 		'posts_per_page' => get_option('posts'),
-		'posts_per_page' => 2,
+		//'posts_per_page' => 2,
 		'ignore_sticky_posts' => true,
 		//'post_in'  => get_option( 'sticky_posts' ),
 	);
 	$news = new WP_Query( $args );
 	$args = array(
 		'post_type' => 'front_page',
-		'posts_per_page' => 2,//get_option('posts'),
+		'posts_per_page' => (4 - get_option('posts')),
 		//'post_in'  => get_option( 'sticky_posts' ),
 	);
 	$query = new WP_Query( $args );
