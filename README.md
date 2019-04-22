@@ -11,3 +11,9 @@ printa avdelningarna med namn på försra sidans topp samt vid footerna på alla
 
 Template för parent pages så som läger och avdelningar som tar och lägger upp child pages snyggt för att presentera childs
 
+##neded plugins
+ *Advanced Custom Fields
+ """
+    create a custom feald for "Första sidan" 
+    add a feeld called "innehals_sida" whit a type: link obiglatory Link array
+ """
