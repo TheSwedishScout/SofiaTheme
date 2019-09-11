@@ -1,9 +1,12 @@
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 <?php
 $link = get_the_permalink();
-if(get_field('innehals_sida'))
-{
-    $link = get_field('innehals_sida')['url'];
+if(function_exists( 'get_field' )){
+
+    if(get_field('innehals_sida'))
+    {
+        $link = get_field('innehals_sida')['url'];
+    }
 }
 ?>
     <h1 class="heading"><a href="<?php echo $link; ?>" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h1>
