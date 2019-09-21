@@ -158,6 +158,13 @@ img {
 	height: auto;
 }
 
+.light {
+	color: var(--light)
+}
+
+.dark {
+	color: var(--blue)
+}
 
 @media screen and (min-width: 1362px) {
 	:root {
