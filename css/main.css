@@ -1,84 +1,112 @@
-:root{
+:root {
 	/*--------------------------------------*/
-	--max-width: 		1362px;
+	--max-width: 1362px;
 	/*--------------------------------------*/
-	--max-width: 		400px;
+	--max-width: 400px;
 	/*--------------------------------------*/
-	--dark: 		rgb(40,39,39);
+	--dark: rgb(40, 39, 39);
 	/*--------------------------------------*/
-	--light: 		#fff;
+	--light: #fff;
 	/*--------------------------------------*/
-	--lighttrans : rgba(255, 255, 255, 0.5);
+	--lighttrans: rgba(255, 255, 255, 0.5);
 	/*--------------------------------------*/
-	--blue: 		rgb(4,58,99);
-	--bluetrans:	rgba(4,58,99,0.1);
+	--blue: rgb(4, 58, 99);
+	--bluetrans: rgba(4, 58, 99, 0.1);
 	/*--------------------------------------*/
-	--sparare: 		rgb(110,173,59);
+	--sparare: rgb(110, 173, 59);
 	/*--------------------------------------*/
-	--upptackare: 	rgb(77,166,222);
+	--upptackare: rgb(77, 166, 222);
 	/*--------------------------------------*/
-	--aventyrare: 	rgb(202,84,16);
+	--aventyrare: rgb(202, 84, 16);
 	/*--------------------------------------*/
-	--utmanare: 	rgb(182,0,85);
+	--utmanare: rgb(182, 0, 85);
 	/*--------------------------------------*/
-	--rover: 		rgb(228,223,24);
+	--rover: rgb(228, 223, 24);
 	/*--------------------------------------*/
-	--rover2: 		rgb(128,121,29);
+	--rover2: rgb(128, 121, 29);
 	/*--------------------------------------*/
-}
-/*fonts'*/
-@font-face {
-    font-family: ScouternaRounded;
-    src: url(fonts/ScouternaRoundedPro.otf);
-}
-@font-face {
-    font-family: TeeULight;
-    src: url(fonts/TeeFranklin-Book.otf);
-}
-@font-face {
-    font-family: TeeBold;
-    src: url(fonts/TeeFranklin-Bold.otf);
-}
-@font-face {
-    font-family: garamond;
-    src: url(fonts/AGaramondPro-Regular.otf);
 }
 
-h1, h1 a, h2, h2 a{
+/*fonts'*/
+@font-face {
+	font-family: ScouternaRounded;
+	src: url(fonts/ScouternaRoundedPro.otf);
+}
+
+@font-face {
+	font-family: TeeULight;
+	src: url(fonts/TeeFranklin-Book.otf);
+}
+
+@font-face {
+	font-family: TeeBold;
+	src: url(fonts/TeeFranklin-Bold.otf);
+}
+
+@font-face {
+	font-family: garamond;
+	src: url(fonts/AGaramondPro-Regular.otf);
+}
+
+h1,
+h1 a,
+h2,
+h2 a {
 	font-family: TeeULight;
 	color: var(--dark);
 }
-h1 a:hover, h2 a:hover{
+
+h1 a:hover,
+h2 a:hover {
 	color: var(--blue);
 }
-h3,h4,h5,h6{
+
+h3,
+h4,
+h5,
+h6 {
 	font-family: TeeBold;
 	color: var(--dark);
 }
-h1{
+
+h1 {
 	font-size: 3em;
 }
-h2{
+
+h2 {
 	font-size: 2.5em;
 }
-h3{
+
+h3 {
 	font-size: 1.9em;
 }
-h4{
+
+h4 {
 	font-size: 1.6em;
 }
-h5{
+
+h5 {
 	font-size: 1.3em;
 }
-h6{
+
+h6 {
 	font-size: 1em;
 }
 
-body{
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	line-height: 1.2em;
+}
+
+body {
 	display: -ms-grid;
 	display: grid;
 	-ms-grid-rows: minmax(auto, 322px) auto auto;
-	    grid-template-rows: minmax(auto, 322px) auto auto;
+	grid-template-rows: minmax(auto, 322px) auto auto;
 	min-height: 100vh;
 	padding: 0;
 	margin: 0;
@@ -86,60 +114,102 @@ body{
 	font-family: garamond;
 
 }
-p, th, td, li, dd, dt, ul, ol, blockquote, q, acronym, abbr, a, input, select, textarea {
+
+p,
+th,
+td,
+li,
+dd,
+dt,
+ul,
+ol,
+blockquote,
+q,
+acronym,
+abbr,
+a,
+input,
+select,
+textarea {
 	font-family: inherit;
+	line-height: 1.5em;
 }
-p+p{
+
+p+h1,
+p+h2,
+p+h3,
+p+h4,
+p+h5,
+p+h6,
+p+p {
 	margin-top: 1em;
 }
-a{
+
+a {
 	color: var(--blue);
 }
-a:hover{
+
+a:hover {
 	color: var(--dark);
 }
-img{
+
+img {
 	max-width: 100%;
-    height: auto;
+	height: auto;
 }
 
 
 @media screen and (min-width: 1362px) {
-	:root{
-	/*--------------------------------------*/
-	--max-width: 		1362px;
+	:root {
+		/*--------------------------------------*/
+		--max-width: 1362px;
 	}
 }
 
 @-webkit-keyframes fixed-nav-appere {
-    from {-webkit-transform: translateY(-37px);transform: translateY(-37px);}
-    to {-webkit-transform: translateY(0px);transform: translateY(0px);}
+	from {
+		-webkit-transform: translateY(-37px);
+		transform: translateY(-37px);
+	}
+
+	to {
+		-webkit-transform: translateY(0px);
+		transform: translateY(0px);
+	}
 }
 
 @keyframes fixed-nav-appere {
-    from {-webkit-transform: translateY(-37px);transform: translateY(-37px);}
-    to {-webkit-transform: translateY(0px);transform: translateY(0px);}
+	from {
+		-webkit-transform: translateY(-37px);
+		transform: translateY(-37px);
+	}
+
+	to {
+		-webkit-transform: translateY(0px);
+		transform: translateY(0px);
+	}
 }
 
-	#IE-ALLERT{
-		display: block;
-		position: fixed;
-		top: 0px;
-		bottom: 0px;
-		left: 0px;
-		right: 0px;
-		z-index: 100000000000000000000;
-		background: rgb(4,58,99);
-	}
-	.ie-allert-content{
-		position: absolute;
-		padding: 10px;
-		background: #fff;
-		left: 50%;
-		top: 50%;
-		transform: translate(-50%, -50%);
-	}
-	.ie-allert-content ul{
-		margin-left: 20px; 
-	}
- 
+#IE-ALLERT {
+	display: block;
+	position: fixed;
+	top: 0px;
+	bottom: 0px;
+	left: 0px;
+	right: 0px;
+	z-index: 100000000000000000000;
+	background: rgb(4, 58, 99);
+}
+
+.ie-allert-content {
+	position: absolute;
+	padding: 10px;
+	background: #fff;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.ie-allert-content ul {
+	margin-left: 20px;
+}
