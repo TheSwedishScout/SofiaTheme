@@ -1,14 +1,21 @@
 <?php
 function the_kårnamn(){
 	//$karnamn = str_replace("scoutkår", "", get_bloginfo( 'name' ));
-	$karnamn = explode("scoutkår", utf8_encode(strtolower(utf8_decode(get_bloginfo( 'name' )))));
-	$karnamn2 = utf8_encode(strtolower(utf8_decode(get_bloginfo( 'name' ))));
+
+	$karnamnClean = utf8_encode(strtolower(utf8_decode(get_bloginfo( 'name' ))));
+	$karnamn = explode(" ", utf8_encode(strtolower(utf8_decode(get_bloginfo( 'name' )))));
+	$karnamn = array_filter($karnamn);
+	if (strpos($karnamnClean, 'scoutkår')){
+		$karnamn = explode("scoutkår", $karnamnClean);
+		$karnamn = array_filter($karnamn);
+		$karnamn[] = "Scoutkår";
+	}
 	?>
 	<div class="karnamn logo">
 	
 	<a href="<?php echo get_home_url(); ?>" >
 
-		<span class="before"><?php echo $karnamn[0]?> </span>
+		<span class="before"><?php echo $karnamn[0];?> </span>
 		<?php
 		if(has_custom_logo()){
 
@@ -22,8 +29,8 @@ function the_kårnamn(){
 
 
 		}
-		if (strpos($karnamn2, 'scoutkår') !== false) {
-			echo '<span class="after" > Scoutkår</span>';
+		if (!empty($karnamn[1])) {
+			echo "<span class='after'> $karnamn[1] </span>";
 		}
 
 	//echo $karnamn[1]; ?></a></div><?php
