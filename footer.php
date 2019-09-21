@@ -1,12 +1,10 @@
 <?php the_avdelningarna('footer-aria'); ?>
 <footer>
-	<div>
 		<?php if ( is_active_sidebar( 'contact' ) ) : ?>
-		    <ul id="sidebar">
+		    <ul id="footer-sidebar">
 		        <?php dynamic_sidebar( 'contact' ); ?>
 		    </ul>
 		<?php endif; ?>
-	</div>
 	<div>
 		<?php if ( is_active_sidebar( 'action' ) ) : ?>
 	    <div class="action-btn">
