@@ -46,7 +46,7 @@
 
 	?></div>
 	<div><?php the_kårnamn() ?></div>
-	<div>Tema skapat av Max Timje för Sofia scoutkår</div>
+	<div>Tema skapat av <a class="light" href="https://max.timje.se">Max Timje</a> för scoutkårer</div>
 </footer>
 
 <?php
