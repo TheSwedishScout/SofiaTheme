@@ -2,40 +2,45 @@
 * Categorys and tags starting whith styling the categorys
 */
 
-a.category{
+a.category {
     display: inline-block;
 }
-.category.image{
-	text-decoration: none;
+
+.category.image {
+    text-decoration: none;
 }
-.category.image img{
-	max-height: 50px;
+
+.category.image img {
+    max-height: 50px;
 }
 
 
-li.tag, a.category{
-    margin-left: 5px;
+li.tag,
+a.category {
+    margin-left: 10px;
 }
+
 /*
 * Tags
 */
 
-.tags{
+.tags {
     list-style: none;
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: flex-start;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
 }
 
-li.tag a{
+li.tag a {
     display: inline-block;
     padding: 8px;
     background: var(--light);
     border-radius: 3px;
 }
-li.tag a:hover{
+
+li.tag a:hover {
     background: var(--blue);
     color: var(--light);
 }

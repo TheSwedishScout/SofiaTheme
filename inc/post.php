@@ -27,7 +27,11 @@ if(function_exists( 'get_field' )){
     <?php
     
     if(has_post_thumbnail()){
-      the_post_thumbnail('wallsize');
+      ?>
+      <a href="<?php echo $link; ?>" title="<?php (!empty(esc_html(get_the_post_thumbnail_caption()))) ? esc_html(get_the_post_thumbnail_caption()) : the_title() ?>">
+      <?php the_post_thumbnail('wallsize');?>
+    </a>
+    <?php
     } 
   } else {
     //normal page
