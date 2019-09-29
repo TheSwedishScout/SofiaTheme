@@ -122,7 +122,7 @@ header .karnamn {
 }
 
 .home header .karnamn {
-	top: auto;
+	/* top: auto; */
 	bottom: 50%;
 }
 
@@ -175,16 +175,6 @@ body header.light .karnamn a {
 
 body header.dark .karnamn a {
 	color: var(--blue);
-}
-
-body header.light #hamburger span {
-	background: var(--light);
-	transition: background .2s;
-}
-
-body header.light #hamburger.open span {
-	background: var(--dark);
-
 }
 
 body>header>.action-btn {
@@ -283,8 +273,8 @@ footer button.caldera-forms-modal:active {
 	display: block;
 	position: absolute;
 	top: 16px;
-	right: calc(100% - 16px - 75px);
-	transition: right .2s;
+	left: 10%;
+	transition: left .2s;
 }
 
 #hamburger span {
@@ -315,13 +305,19 @@ footer button.caldera-forms-modal:active {
 	display: block;
 }
 
+body header.light #hamburger span,
+body #header-image.light #hamburger span {
+	background: var(--light);
+}
+
 .admin-bar #hamburger.open {
 	top: 56px;
 }
 
 #hamburger.open {
 	position: fixed;
-	right: calc(20% + 16px);
+	/* right: calc(20% + 16px); */
+	left: 85%;
 	z-index: 101;
 }
 
@@ -379,10 +375,19 @@ body>header #header-image {
 	}
 
 	#topMeny {
-		width: 100%;
 		opacity: 1;
 		background: var(--lighttrans);
 		overflow: visible;
+		position: fixed;
+		width: 100%;
+		top: 0;
+		background-color: rgba(255, 255, 255, 1);
+		border-bottom: 1px solid var(--dark);
+		bottom: auto;
+		z-index: 100;
+		box-shadow: 0px 0px 6px var(--dark);
+		-webkit-animation: fixed-nav-appere .3s forwards;
+		animation: fixed-nav-appere .3s forwards;
 	}
 
 	#topMeny .submenu {
@@ -402,21 +407,9 @@ body>header #header-image {
 		padding-left: 0;
 	}
 
-	#topMeny.fixed {
-		position: fixed;
-		width: 100%;
-		top: 0;
-		background-color: rgba(255, 255, 255, 1);
-		border-bottom: 1px solid var(--dark);
-		bottom: auto;
-		z-index: 100;
-		box-shadow: 0px 0px 6px var(--dark);
-		-webkit-animation: fixed-nav-appere .3s forwards;
-		animation: fixed-nav-appere .3s forwards;
 
-	}
 
-	.admin-bar #topMeny.fixed {
+	.admin-bar #topMeny {
 		top: 2em;
 	}
 
@@ -490,7 +483,6 @@ body>header #header-image {
 		width: 100%;
 		margin: 0 auto;
 		padding: 0;
-
 		left: 0;
 		top: 3.28em;
 
@@ -516,7 +508,6 @@ body>header #header-image {
 	body header nav .menu-item-has-children:hover .sub-menu {
 		background: var(--lighttrans);
 		height: 36px;
-
 		box-shadow: 1px 4px 2px var(--dark);
 	}
 

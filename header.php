@@ -23,7 +23,7 @@
 	if($get_header_image){
 		$luminance = get_avg_luminance($get_header_image);
 		//var_dump($luminance);
-		if ($luminance > 50) {
+		if ($luminance > 100) {
 			$imglum = "dark";
 		}else{
 			$imglum = "light";
