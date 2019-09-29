@@ -194,7 +194,7 @@ body>main>div.frontpageNotes {
 		grid-template-areas: "header""article""footer"
 	}
 
-	main article:not(:only-of-type):not(:last-child) {
+	.home main article:not(:only-of-type):not(:last-child) {
 		margin-bottom: 0;
 	}
 
