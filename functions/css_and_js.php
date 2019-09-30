@@ -14,6 +14,12 @@ wp_enqueue_style( 'SofiaScoutkårInput', get_template_directory_uri() . '/css/in
 wp_enqueue_style( 'SofiaScoutkårcomment', get_template_directory_uri() . '/css/comment.css' );
 wp_enqueue_style( 'SofiaScoutkårCategorysAndTags', get_template_directory_uri() . '/css/catsAndTags.css' );
 wp_enqueue_style( 'SofiaScoutkårBreadbrumbs', get_template_directory_uri() . '/css/breadcrumbs.css' );
+
+//WIDGETS
+wp_enqueue_style( 'SofiaScoutkårWidgetSearch', get_template_directory_uri() . '/css/widgets/search.css' );
+wp_enqueue_style( 'SofiaScoutkårWidgetTagcloud', get_template_directory_uri() . '/css/widgets/tagcloud.css' );
+
+
 if(is_page_template('parent-page.php')){
 wp_enqueue_style( 'SofiaScoutkårParentPage', get_template_directory_uri() . '/css/parent.css' );
 }

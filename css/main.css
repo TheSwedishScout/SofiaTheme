@@ -158,6 +158,10 @@ img {
 	height: auto;
 }
 
+td{
+	padding: 5px 0;
+}
+
 .light {
 	color: var(--light)
 }
