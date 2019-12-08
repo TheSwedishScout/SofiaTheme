@@ -361,7 +361,6 @@ body>header #header-image {
 
 	header .karnamn a {
 		display: grid;
-		display: -ms-grid;
 	}
 }
 

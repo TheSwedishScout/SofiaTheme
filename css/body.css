@@ -27,7 +27,7 @@ main article {
 }
 
 main article:not(:only-of-type):not(:last-child) {
-	margin-bottom: 18px;
+	margin-bottom: 10px;
 	/* border-bottom: 1px solid var(--dark); */
 }
 
