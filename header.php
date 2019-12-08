@@ -31,7 +31,7 @@
 		}
 	}
 	?>
-	<header class="main-header" >
+	<header class="main-header <?php echo $imglum; ?> <?php echo $luminance; ?>" >
 		<div id="header-image" class="<?php echo $imglum; ?> <?php echo $luminance; ?>" style="background-image: url(<?php echo $get_header_image; ?>);">
 		<div id="hamburger">
 			<span></span>
@@ -61,6 +61,7 @@
 		</nav>
 
 			<?php the_kårnamn(); ?>
+			<p class="slogan"><?php echo get_bloginfo('description') ?></p>
 			</div>
 			<?php
 	$ua = htmlentities($_SERVER['HTTP_USER_AGENT'], ENT_QUOTES, 'UTF-8');
