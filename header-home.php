@@ -24,6 +24,7 @@
 	the_kårnamn();
 	?>
 	</h1>
+	<p class="slogan"><?php echo get_bloginfo('description') ?></p>
 	<?php if ( is_active_sidebar( 'action' ) ) : ?>
 	    <div class="action-btn">
 	        <?php dynamic_sidebar( 'action' ); ?>

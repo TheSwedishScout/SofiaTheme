@@ -123,7 +123,7 @@ header .karnamn {
 
 .home header .karnamn {
 	/* top: auto; */
-	bottom: 50%;
+	/* bottom: 50%; */
 }
 
 header .karnamn a {
@@ -169,12 +169,20 @@ header div.karnamn:hover img {
 	-ms-filter: "progid:DXImageTransform.Microsoft.Dropshadow(OffX=12, OffY=12, Color='#444')";
 }
 
-body header.light .karnamn a {
+body header.light .karnamn a, body header.light .slogan {
 	color: var(--light);
 }
 
-body header.dark .karnamn a {
+body header.dark .karnamn a, body header.dark .slogan {
 	color: var(--blue);
+}
+.slogan{
+	position: absolute;
+	left: 50%;
+	top: calc(35% + 9vw + 1rem);
+	transform: translateX(-50%);
+	text-align: center;
+	font-family: TeeULight;
 }
 
 body>header>.action-btn {
@@ -275,6 +283,7 @@ footer button.caldera-forms-modal:active {
 	top: 16px;
 	left: 10%;
 	transition: left .2s;
+	z-index: 1000;
 }
 
 #hamburger span {
@@ -518,6 +527,9 @@ body>header #header-image {
 
 	.karnamn img {
 		height: auto;
+	}
+	.slogan{
+		top: calc(35% + 135px);
 	}
 
 	.avdelningar-nav {
