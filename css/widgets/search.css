@@ -1,0 +1,14 @@
+.widget_search div{
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+}
+.widget_search input[type="text"]{
+  box-sizing: border-box;
+  grid-column-start: 1;
+
+}
+.widget_search input[type="submit"]{
+  grid-column-start: 2;
+  min-width: auto;
+  border-radius: 0;
+}
