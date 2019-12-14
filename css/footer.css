@@ -75,11 +75,15 @@ body>footer .karnamn {
 	font-size: 40px;
 	font-family: ScouternaRounded;
 	line-height: 30px;
-	color: var(--light);
 	text-align: center;
 	text-transform: uppercase;
 	text-decoration: none;
-
+}
+body>footer .karnamn a{
+	color: var(--light);
+}
+body>footer .karnamn a:hover{
+	color: var(--lighttrans);
 }
 
 body>footer .karnamn:hover {
