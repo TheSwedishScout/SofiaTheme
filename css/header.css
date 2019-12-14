@@ -183,12 +183,14 @@ body>header>.action-btn {
 	left: 0;
 	right: 0;
 	bottom: 30%;
+}
+.action-btn{
 	text-align: center;
 }
-
 header button.caldera-forms-modal,
 footer button.caldera-forms-modal,
-.action-btn a {
+.action-btn a,
+.action-btn button {
 	display: inline-block;
 	padding: 16px;
 	border: none;
@@ -204,6 +206,7 @@ footer button.caldera-forms-modal,
 
 header button.caldera-forms-modal:hover,
 .action-btn a:hover,
+.action-btn button:hover,
 footer button.caldera-forms-modal:hover {
 	transition: color .2s, background-color .2s;
 	text-decoration: underline;
@@ -215,6 +218,7 @@ footer button.caldera-forms-modal:hover {
 
 header button.caldera-forms-modal:active,
 .action-btn a:active,
+.action-btn button:active,
 footer button.caldera-forms-modal:active {
 	transform: scale(0.98);
 	-webkit-transform: scale(0.98);
@@ -249,8 +253,11 @@ footer button.caldera-forms-modal:active {
 	transform: translateY(-10px);
 }
 
-/*.avdelningar-nav p{
-}*/
+.avdelningar-nav a:active img {
+	-webkit-transform: translateY(-5px);
+	transform: translateY(-5px);
+}
+
 .avdelningar-nav li a {
 	display: -ms-grid;
 	display: grid;
