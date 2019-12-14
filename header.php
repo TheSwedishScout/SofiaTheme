@@ -60,7 +60,7 @@
 		  
 		</nav>
 
-			<?php the_kårnamn(); ?>
+			<?php the_kårnamn($imglum); ?>
 			<p class="slogan"><?php echo get_bloginfo('description') ?></p>
 			</div>
 			<?php
