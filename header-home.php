@@ -21,7 +21,7 @@
 <header class="main-header <?php echo $imglum; ?>" style="background-image: url(<?php header_image(); ?>);">
 	<h1>
 	<?php 
-	the_kårnamn();
+	the_kårnamn($imglum);
 	?>
 	</h1>
 	<p class="slogan"><?php echo get_bloginfo('description') ?></p>

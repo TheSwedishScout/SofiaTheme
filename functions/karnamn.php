@@ -1,5 +1,5 @@
 <?php
-function the_kårnamn(){
+function the_kårnamn($lumunosity){
 	//$karnamn = str_replace("scoutkår", "", get_bloginfo( 'name' ));
 
 	$karnamnClean = utf8_encode(strtolower(utf8_decode(get_bloginfo( 'name' ))));
@@ -25,7 +25,12 @@ function the_kårnamn(){
 			?><img alt="logo märke" src="<?php echo $logo_image[0] ?>"><?php
 		}else{
 			/*echo "Scoutemblem";*/
-			?><img alt="Scouterna svenska scouternas symbol" src="<?php echo get_template_directory_uri() . '/images/Scoutsymbolen_rgb.png' ?>"><?php
+			if($lumunosity == 'light'){
+				$image = '/images/Scoutsymbolen_rgb.png';
+			}else{
+				$image = '/images/Scoutsymbolen_white.png';
+			}
+			?><img alt="Scouterna svenska scouternas symbol" src="<?php echo get_template_directory_uri() . $image ?>"><?php
 
 
 		}

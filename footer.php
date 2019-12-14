@@ -45,7 +45,7 @@
 	}
 
 	?></div>
-	<div><?php the_kårnamn() ?></div>
+	<div><?php the_kårnamn('light') ?></div>
 	<div>Tema skapat av <a class="light" href="https://max.timje.se">Max Timje</a> för scoutkårer</div>
 </footer>
 
