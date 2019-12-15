@@ -1,6 +1,7 @@
 body.home header {
 	position: relative;
-	min-height: 100vh;
+	min-height: 400px;
+	height: 100vh;
 	max-width: 100vw;
 }
 
@@ -190,7 +191,7 @@ body>header>.action-btn {
 	position: absolute;
 	left: 0;
 	right: 0;
-	bottom: 30%;
+	top: calc(35% + 165px);
 }
 .action-btn{
 	text-align: center;
