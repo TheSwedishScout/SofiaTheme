@@ -24,11 +24,10 @@ function the_kårnamn($lumunosity){
 
 			?><img alt="logo märke" src="<?php echo $logo_image[0] ?>"><?php
 		}else{
-			/*echo "Scoutemblem";*/
 			if($lumunosity == 'light'){
-				$image = '/images/Scoutsymbolen_rgb.png';
-			}else{
 				$image = '/images/Scoutsymbolen_white.png';
+			}else{
+				$image = '/images/Scoutsymbolen_rgb.png';
 			}
 			?><img alt="Scouterna svenska scouternas symbol" src="<?php echo get_template_directory_uri() . $image ?>"><?php
 
