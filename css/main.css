@@ -99,7 +99,7 @@ h3,
 h4,
 h5,
 h6 {
-	line-height: 1.2rem;
+	line-height: 1.2em;
 }
 
 body {
@@ -132,7 +132,7 @@ input,
 select,
 textarea {
 	font-family: inherit;
-	line-height: 1.5rem;
+	line-height: 1.5em;
 }
 
 p+h1,
