@@ -184,6 +184,8 @@ body header.dark .karnamn a, body header.dark .slogan {
 	transform: translateX(-50%);
 	text-align: center;
 	font-family: TeeULight;
+    font-weight: 600;
+    text-shadow: 1px 1px 2px rgba(21, 21, 21, 1);
 }
 
 body>header>.action-btn {
