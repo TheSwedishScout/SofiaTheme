@@ -18,8 +18,8 @@ function the_avdelningarna($class=""){
 			?>
 			<li>
 				<a href="<?php echo get_option( 'minispårare' );?>">
-					<img alt="Spårar avdelningens märke" src="<?php echo get_template_directory_uri()."/images/avdelningar/minispårare.png"; ?>">
-					<p>Spårarna</p>
+					<img alt="miinspårarnas avdelningens märke" src="<?php echo get_template_directory_uri()."/images/avdelningar/minispårare.png"; ?>">
+					<p>Minispårarna</p>
 				</a>
 			</li>
 			<?php
