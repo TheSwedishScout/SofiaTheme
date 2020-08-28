@@ -206,6 +206,7 @@ footer button.caldera-forms-modal,
 .action-btn input[type="submit"],
 .action-btn input[type="button"],
 .action-btn input {
+	min-width:auto;
 	display: inline-block;
 	padding: 16px;
 	border: none;
