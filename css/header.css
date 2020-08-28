@@ -203,8 +203,8 @@ header button.caldera-forms-modal,
 footer button.caldera-forms-modal,
 .action-btn a,
 .action-btn button,
-.action-btn input[type="submit"]
-.action-btn input[type="button"]
+.action-btn input[type="submit"],
+.action-btn input[type="button"],
 .action-btn input {
 	display: inline-block;
 	padding: 16px;
