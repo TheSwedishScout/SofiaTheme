@@ -25,6 +25,7 @@ function sofia_max_cusom_settings(){
 	
 	//avdelningar
 	register_setting( 'Scout_settings_group_avdelningar', 'bäver' );
+	register_setting( 'Scout_settings_group_avdelningar', 'minispårare' );
 	register_setting( 'Scout_settings_group_avdelningar', 'spårare' );
 	register_setting( 'Scout_settings_group_avdelningar', 'upptäckare' );
 	register_setting( 'Scout_settings_group_avdelningar', 'äventyrare' );
@@ -32,6 +33,7 @@ function sofia_max_cusom_settings(){
 	register_setting( 'Scout_settings_group_avdelningar', 'rover' );
 	add_settings_section( 'sofia-max-Avdelningar', 'avdelningar', 'sofia_max_avdelnigar_sidor', 'Scout_max_avdelningar' );
 	add_settings_field( 'bäver-link', 'bäver', 'sofia_max_insert_link', 'Scout_max_avdelningar', 'sofia-max-Avdelningar', array( 'for' => 'bäver', 'type'=>"text" ));
+	add_settings_field( 'minispårare-link', 'minispårare', 'sofia_max_insert_social_media', 'Scout_max_avdelningar', 'sofia-max-Avdelningar', array( 'for' => 'minispårare', 'type'=>"text" ));
 	add_settings_field( 'spårare-link', 'spårare', 'sofia_max_insert_social_media', 'Scout_max_avdelningar', 'sofia-max-Avdelningar', array( 'for' => 'spårare', 'type'=>"text" ));
 	add_settings_field( 'upptäckare-link', 'upptäckare', 'sofia_max_insert_social_media', 'Scout_max_avdelningar', 'sofia-max-Avdelningar', array( 'for' => 'upptäckare', 'type'=>"text" ));
 	add_settings_field( 'äventyrare-link', 'äventyrare', 'sofia_max_insert_social_media', 'Scout_max_avdelningar', 'sofia-max-Avdelningar', array( 'for' => 'äventyrare', 'type'=>"text" ));

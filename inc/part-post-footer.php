@@ -62,6 +62,20 @@ if ( $post_tags ) {
 					
 				}
 				break;
+			case 'Minispårare':
+			case 'Minisparare':
+			case 'Minispårarna':
+			case 'Minispararna':
+			case 'minisparare':
+			case 'minispårare':
+			case 'minispårarna':
+			case 'minispararna':
+				?>
+				<a class="category image" href="<?php echo esc_url( $category_link ); ?>" title="Kategori <?php echo $cat->name;?>">
+				<img alt="Spårar avdelningens märke" src="<?php echo get_template_directory_uri()."/images/avdelningar/spårare.png"; ?>">
+				</a>
+				<?php
+				break;
 			case 'Spårare':
 			case 'Sparare':
 			case 'spårare':
