@@ -203,6 +203,8 @@ header button.caldera-forms-modal,
 footer button.caldera-forms-modal,
 .action-btn a,
 .action-btn button,
+.action-btn input[type="submit"]
+.action-btn input[type="button"]
 .action-btn input {
 	display: inline-block;
 	padding: 16px;
@@ -220,6 +222,8 @@ footer button.caldera-forms-modal,
 header button.caldera-forms-modal:hover,
 .action-btn a:hover,
 .action-btn button:hover,
+.action-btn input[type="submit"]:hover,
+.action-btn input[type="button"]:hover,
 .action-btn input:hover,
 footer button.caldera-forms-modal:hover {
 	transition: color .2s, background-color .2s;
@@ -233,6 +237,8 @@ footer button.caldera-forms-modal:hover {
 header button.caldera-forms-modal:active,
 .action-btn a:active,
 .action-btn button:active,
+.action-btn input[type="submit"]:active,
+.action-btn input[type="button"]:active,
 .action-btn input:active,
 footer button.caldera-forms-modal:active {
 	transform: scale(0.98);
