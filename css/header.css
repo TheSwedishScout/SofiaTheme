@@ -182,6 +182,7 @@ body header.dark .karnamn a, body header.dark .slogan {
 	left: 50%;
 	top: calc(35% + 9vw + 1rem);
 	transform: translateX(-50%);
+	font-size: 1.6em;
 	text-align: center;
 	font-family: TeeULight;
     font-weight: 600;
@@ -193,7 +194,7 @@ body>header>.action-btn {
 	position: absolute;
 	left: 0;
 	right: 0;
-	top: calc(35% + 165px);
+	top: calc(35% + 175px);
 }
 .action-btn{
 	text-align: center;
@@ -201,7 +202,8 @@ body>header>.action-btn {
 header button.caldera-forms-modal,
 footer button.caldera-forms-modal,
 .action-btn a,
-.action-btn button {
+.action-btn button,
+.action-btn input {
 	display: inline-block;
 	padding: 16px;
 	border: none;
@@ -218,6 +220,7 @@ footer button.caldera-forms-modal,
 header button.caldera-forms-modal:hover,
 .action-btn a:hover,
 .action-btn button:hover,
+.action-btn input:hover,
 footer button.caldera-forms-modal:hover {
 	transition: color .2s, background-color .2s;
 	text-decoration: underline;
@@ -230,6 +233,7 @@ footer button.caldera-forms-modal:hover {
 header button.caldera-forms-modal:active,
 .action-btn a:active,
 .action-btn button:active,
+.action-btn input:active,
 footer button.caldera-forms-modal:active {
 	transform: scale(0.98);
 	-webkit-transform: scale(0.98);

@@ -14,6 +14,17 @@ function the_avdelningarna($class=""){
 			<?php
 
 		}
+		if (!empty(get_option( 'minispårare' ))){
+			?>
+			<li>
+				<a href="<?php echo get_option( 'minispårare' );?>">
+					<img alt="Spårar avdelningens märke" src="<?php echo get_template_directory_uri()."/images/avdelningar/minispårare.png"; ?>">
+					<p>Spårarna</p>
+				</a>
+			</li>
+			<?php
+
+		}
 		if (!empty(get_option( 'spårare' ))){
 			?>
 			<li>
