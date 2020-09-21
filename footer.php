@@ -4,6 +4,7 @@
 	    <ul id="footer-sidebar">
 		<?php dynamic_sidebar( 'contact' ); ?>
 	    </ul>
+	<b><?php echo "    "; ?></b>
 	<?php }; ?>
 	<div>
 		<?php if ( is_active_sidebar( 'action' ) ) : ?>
