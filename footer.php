@@ -1,15 +1,15 @@
 <?php the_avdelningarna('footer-aria'); ?>
 <footer>
-		<?php if ( is_active_sidebar( 'contact' ) ) : ?>
-		    <ul id="footer-sidebar">
-		        <?php dynamic_sidebar( 'contact' ); ?>
-		    </ul>
-		<?php endif; ?>
+	<?php if ( is_active_sidebar( 'contact' ) ){  ?>
+	    <ul id="footer-sidebar">
+		<?php dynamic_sidebar( 'contact' ); ?>
+	    </ul>
+	<?php }; ?>
 	<div>
 		<?php if ( is_active_sidebar( 'action' ) ) : ?>
-	    <div class="action-btn">
-	        <?php dynamic_sidebar( 'action' ); ?>
-	    </div>
+		    <div class="action-btn">
+			<?php dynamic_sidebar( 'action' ); ?>
+		    </div>
 		<?php endif; ?>
 	</div>
 	<div class="social-aria"><?php
