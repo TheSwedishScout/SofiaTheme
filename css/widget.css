@@ -2,6 +2,9 @@
 	list-style: none;
 }
 
+iframe {
+	max-width: 100%;
+}
 .widget iframe {
 	max-width: 100%;
 }

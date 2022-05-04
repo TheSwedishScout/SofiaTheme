@@ -1,3 +1,9 @@
+.header {
+    word-break: break-word;
+}
+.exerpt {
+    word-break: break-word;
+}
 .exerpt ul, .exerpt ol{
     margin-left: 25px;
 }
