@@ -1,16 +1,15 @@
 <?php the_avdelningarna('footer-aria'); ?>
 <footer>
-	<?php if ( is_active_sidebar( 'contact' ) ){  ?>
-	    <ul id="footer-sidebar">
-		<?php dynamic_sidebar( 'contact' ); ?>
-	    </ul>
-	<b><?php echo "    "; ?></b>
-	<?php }; ?>
+		<?php if ( is_active_sidebar( 'contact' ) ) : ?>
+		    <ul id="footer-sidebar">
+		        <?php dynamic_sidebar( 'contact' ); ?>
+		    </ul>
+		<?php endif; ?>
 	<div>
 		<?php if ( is_active_sidebar( 'action' ) ) : ?>
-		    <div class="action-btn">
-			<?php dynamic_sidebar( 'action' ); ?>
-		    </div>
+	    <div class="action-btn">
+	        <?php dynamic_sidebar( 'action' ); ?>
+	    </div>
 		<?php endif; ?>
 	</div>
 	<div class="social-aria"><?php
@@ -46,7 +45,7 @@
 	}
 
 	?></div>
-	<div><?php the_kårnamn('light') ?></div>
+	<div><?php the_kårnamn() ?></div>
 	<div>Tema skapat av <a class="light" href="https://max.timje.se">Max Timje</a> för scoutkårer</div>
 </footer>
 
