@@ -13,13 +13,12 @@
             <div class="exerpt imageless">
             <?php
         }
-            the_excerpt();?>
-            <a href="<?php the_permalink(); ?>"><?php echo __('Läs mer', 'sofiascoutkar')?></a>
+            the_content(__('Läs mer', 'sofiascoutkar'), false);?>
+            <!-- <a href="<?php the_permalink(); ?>"><?php echo __('Läs mer', 'sofiascoutkar')?></a> -->
         </div>
         <?php
-        
         if(has_post_thumbnail()){
-            the_post_thumbnail('wallsize');
+             the_post_thumbnail('wallsize', array('class' => 'feture-image'));
         } 
 
 

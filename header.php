@@ -22,7 +22,6 @@ wp_head() ?>
     }
 
         $luminance = get_avg_luminance($get_header_image);
-        var_dump($luminance);
         if ($luminance > 100 || $luminance == null) {
             $imgLum = "dark";
         } else {

@@ -214,7 +214,7 @@ footer button.caldera-forms-modal,
 	color: var(--light);
 	text-decoration: none;
 	font-family: TeeBold;
-	font-size: 20px;
+	font-size: 1.2rem;
 	border-radius: 8px;
 	box-shadow: 3px 3px 6px rgba(14, 14, 14, 0.4);
 	transition: transform .4s;
@@ -252,11 +252,11 @@ footer button.caldera-forms-modal:active {
 	outline: none;
 }
 
+/************************------------------------------------------------------------------**/
 .avdelningar-nav {
 	display: flex;
 	width: 100%;
 	margin: 0 auto;
-	padding: 10px;
 	list-style: none;
 	flex-direction: row;
 	justify-content: space-around;
@@ -280,6 +280,9 @@ footer button.caldera-forms-modal:active {
 	transform: translateY(-5px);
 }
 
+.avdelningar-nav li a p {
+	display: none;
+}
 .avdelningar-nav li a {
 	display: -ms-grid;
 	display: grid;
@@ -288,6 +291,15 @@ footer button.caldera-forms-modal:active {
 	grid-row: 100px 1em;
 	grid-gap: 10px;
 	justify-items: center;
+}
+@media screen and (min-width: 420px) {
+	.avdelningar-nav {
+		padding: 10px;
+		
+	}
+	.avdelningar-nav li a p {
+		display: inline-block;
+	}
 }
 
 #topMeny {
