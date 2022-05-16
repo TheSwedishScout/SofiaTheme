@@ -28,7 +28,7 @@ if(function_exists( 'get_field' )){
     
     if(has_post_thumbnail()){
       ?>
-      <a href="<?php echo $link; ?>" title="<?php (!empty(esc_html(get_the_post_thumbnail_caption()))) ? esc_html(get_the_post_thumbnail_caption()) : the_title() ?>">
+      <a class="feture-image" href="<?php echo $link; ?>" title="<?php (!empty(esc_html(get_the_post_thumbnail_caption()))) ? esc_html(get_the_post_thumbnail_caption()) : the_title() ?>">
       <?php the_post_thumbnail('wallsize');?>
     </a>
     <?php
